@@ -1,0 +1,92 @@
+.backdrop-recipes.is-hidden-modal,
+.modal-recipes.is-hidden-modal
+ {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 250ms linear, visibility 250ms linear;
+}
+.overflow-hidden {
+    overflow: hidden;
+}
+/* Background */
+.backdrop-recipes {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #05050548;
+    overflow: auto;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    transition: opacity 250ms linear, visibility 250ms linear;
+}
+
+.modal-recipes {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 295px;
+    min-height: 700px;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    transition: opacity 250ms linear, visibility 250ms linear;
+}
+@media screen and (max-width: 767px) {
+    .modal-recipes {
+        top: 20px;
+    }
+
+    .modal-recipes::after {
+        content: '';
+        display: block;
+        width: 335px;
+        height: 20px;
+        position: relative;
+        bottom: -62px;
+        left: -20px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .modal-recipes {
+        width: 685px;
+        padding: 32px;
+        height: 681px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+@media screen and (min-width: 1280px) {
+
+}
+/* Buttons */
+.close-modal {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: #00000000;
+    border: none;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+}
+
+.close-modal-icon {
+    stroke: #000000;
+    fill: rgba(5, 5, 5, 0.5);
+}
