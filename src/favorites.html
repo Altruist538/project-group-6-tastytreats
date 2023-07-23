@@ -1,42 +1,65 @@
-<header class="header">
-    <div class="container header-container">
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>favorites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/partials/css/index.css" />
+    <link rel="stylesheet" href="/src/partials/css/header.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <div class="container header-container">
         <div class="header-nav">
-            <ul style="list-style: none" class="header-menu">
-                <li><a class="link current" href="./header.html">Home</a></li>
-                <li><a class="link" href="./favorites.html">Favorites</a></li>
-            </ul>
-            <a href="./header.html" class="navig-logo"><span class="navig-logoitem">tasty</span>treats.</a>
+          <ul style="list-style: none" class="header-menu">
+            <li><a class="link current" href="./index.html">Home</a></li>
+            <li><a class="link" href="./favorites.html">Favorites</a></li>
+          </ul>
+          <a href="./index.html" class="navig-logo"
+            ><span class="navig-logoitem">tasty</span>treats.</a
+          >
         </div>
         <div class="header-contact">
-            <svg class="header-menu-contect" width="24" height="24">
-                <use href="../images/sprite.svg#icon-shopping-cart"></use>
-            </svg>
-            <svg class="header-menu-switch" width="46" height="20">
-                <use href="../images/sprite.svg#icon-switch"></use>
-            </svg>
+          <svg class="header-menu-contect" width="24" height="24">
+            <use href="./partials/images/sprite.svg#icon-shopping-cart"></use>
+          </svg>
+          <svg class="header-menu-switch" width="46" height="20">
+            <use href="./partials/images/sprite.svg#icon-switch"></use>
+          </svg>
         </div>
 
         <button class="header-burger js-open-menu" type="button">
-            <svg width="32" height="32">
-                <use href="../images/sprite.svg#icon-burger"></use>
-            </svg>
+          <svg width="32" height="32">
+            <use href="./partials/images/sprite.svg#icon-burger"></use>
+          </svg>
         </button>
 
         <div class="mobile-menu js-menu-container">
-            <button class="model-close-js js-close-menu" type="button">
-                <svg class="close">
-                    <use href="../images/sprite.svg#icon-x"></use>
-                </svg>
-            </button>
-            <div class="header-nav-modal">
-                <ul class="contact-menu-nav">
-                    <li><a class="link" href="./header.html">Home</a></li>
-                    <li><a class="link" href="./favorites.html">Favorites</a></li>
-                </ul>
-                <svg class="model-menu-switch" width="46" height="20">
-                    <use href="../images/sprite.svg#icon-switch"></use>
-                </svg>
-            </div>
+          <button class="model-close-js js-close-menu" type="button">
+            <svg class="close">
+              <use href="./partials/images/sprite.svg#icon-x"></use>
+            </svg>
+          </button>
+          <div class="header-nav-modal">
+            <ul class="contact-menu-nav">
+              <li><a class="link" href="./index.html">Home</a></li>
+              <li><a class="link" href="./favorites.html">Favorites</a></li>
+            </ul>
+            <svg class="model-menu-switch" width="46" height="20">
+              <use href="./partials/images/sprite.svg#icon-switch"></use>
+            </svg>
+          </div>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
+    <!-- header /-->
+    <script src="./partials/js/header.js"></script>
+  </body>
+</html>
