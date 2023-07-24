@@ -25,11 +25,16 @@ categoriesList.addEventListener('click', onClick);
 
 function onClick(event) {
   const checkedCategory = event.target.textContent;
-  const filteredRecipes = fetch(
-    'https://tasty-treats-backend.p.goit.global/api/recipes?category=${checkedCategory}&page=1&limit=48'
+  const { category } = fetch(
+    'https://tasty-treats-backend.p.goit.global/api/recipes?page=1&limit=500'
   )
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => {
+      const filteredArray = data.results.filter(
+        categories => category === checkedCategory
+      );
+      console.log(category);
+    });
 }
 
-onClick();
+// onClick();
