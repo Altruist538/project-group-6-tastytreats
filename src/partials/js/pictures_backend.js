@@ -3,7 +3,7 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 const galleryEl = document.querySelector('.gallery');
 const myApiKey = '38289805-c9ad3276c7a7da4bbf01374d5';
-const BASE_URL = 'https://pixabay.com/api/';
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const perPage = 40;
 let pageCounter = 1;
 async function fetchImages() {
@@ -19,6 +19,7 @@ async function fetchImages() {
         per_page: perPage,
       },
     });
+    console.log(response.data);
     const totalHits = response.data.totalHits;
     const pagesCount = Math.ceil(totalHits / perPage);
     if (response.data.hits.length === 0) {
@@ -33,7 +34,7 @@ async function fetchImages() {
     console.log(`Failed to fetch images: ${error}`);
   }
 }
-function renderImgCard(response) {
+async function renderImgCard(response) {
   let listArr = response.map((resp) => {
     return `<a href="${resp.largeImageURL}" class="gallery__link">
       <img src="${resp.webformatURL}" alt="${resp.tags}" loading="lazy" />
@@ -56,6 +57,7 @@ function renderImgCard(response) {
   galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
   lightbox.refresh();
 }
+// Вызываем функцию fetchImages() при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
   fetchImages();
 });
