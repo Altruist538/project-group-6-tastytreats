@@ -1,9 +1,10 @@
-import { findRecipes, patchRating } from '../service/API';
-import { measureRating } from '../renders/renders';
-import { ratingScale } from '../renders/renders';
+
+//import { findRecipes, patchRating } from './API';//
+//import { measureRating } from '../renders/renders';//
+//import { ratingScale } from '../renders/renders';//
 import SmoothScrollbar from 'smooth-scrollbar';
 import Notiflix from 'notiflix';
-
+// import { isValidEmail } from './orderForm';
 const refs = {
   closeModalBtn: document.querySelector('.close-modal'),
   backdropModal: document.querySelector('.backdrop-recipes'),
@@ -12,17 +13,26 @@ const refs = {
   backdropModal: document.querySelector('.backdrop-recipes'),
   saveRecipeBtn: document.querySelector('.save-recipes-btn'),
   giveRatingBtn: document.querySelector('.give-rating-btn'),
-  };
+  rateModal: document.querySelector('.modal-rating'),
+  closeRate: document.querySelector('.close-rate-modal'),
+  modalRateList: document.querySelector('.modal-rate-list'),
+  rateVal: document.querySelector('.rate-range-value'),
+  rateRage: document.querySelector('.rate-range-input'),
+  rateEmail: document.querySelector('.rate-email-input'),
+  rateForm: document.querySelector('.rate-form'),
+  sendRateBtn: document.querySelector('.send-rating-btn'),
+};
 // open\close a modal window
 
 export function OpenModal(currentBtn) {
   refs.closeModalBtn.addEventListener('click', CloseModal);
   refs.backdropModal.addEventListener('click', CloseOnClick);
+  //   refs.giveRatingBtn.addEventListener('click', OpenRateModal);
   window.addEventListener('keydown', CloseOnBtnClick);
 
   refs.backdropModal.classList.remove('is-hidden-modal');
   refs.mainModalRecipes.classList.remove('is-hidden-modal');
-  refs.rateForm.dataset.id = currentBtn.dataset.id;
+  //   refs.rateForm.dataset.id = currentBtn.dataset.id;
   genereteRecipe(currentBtn.dataset.id);
   ToggleScroll();
 
@@ -39,19 +49,12 @@ export function OpenModal(currentBtn) {
 
   refs.saveRecipeBtn.addEventListener('click', AddToFav);
 }
-
-function OpenRateModal() {
-  refs.mainModalRecipes.classList.add('is-hidden-modal');
-  refs.rateModal.classList.remove('is-hidden-modal');
-refs.closeRate.addEventListener('click', CloseRateModal); //1
-  }
-
-CloseModal();
 function CloseModal() {
   removeListeners();
-  restoreForm();
+  //   restoreForm();
   refs.backdropModal.classList.add('is-hidden-modal');
-  refs.rateModal.classList.add('is-hidden-modal');
+  refs.mainModalRecipes.classList.add('is-hidden-modal');
+  //   refs.rateModal.classList.add('is-hidden-modal');
   refs.modalRecipes.innerHTML = '';
   ToggleScroll();
 }
@@ -193,7 +196,5 @@ function removeListeners() {
   refs.backdropModal.removeEventListener('click', CloseOnClick);
   refs.saveRecipeBtn.removeEventListener('click', AddToFav);
   
-
-  // All
   window.removeEventListener('keydown', CloseOnBtnClick);
 }
