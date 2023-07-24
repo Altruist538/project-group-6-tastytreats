@@ -9,33 +9,41 @@
   <body>
     <header></header>
     <main class="main">
-      <div class="img-wrapper">
-        <img
-          src="../images/card670px-mob2x.webp"
-          alt="dish"
-          width="335"
-          height="516"
-          class="dish-img"
-        />
-      </div>
-      <div class="btn-wrapper">
-        <button class="btn-category">All categories</button>
-        <button class="btn-category">Beef</button>
-        <button class="btn-category">Breakfast</button>
-        <button class="btn-category">Chicken</button>
-        <button class="btn-category">Dessert</button>
-        <button class="btn-category">Goat</button>
-        <button class="btn-category">Lamb</button>
-        <button class="btn-category">Miscellaneous</button>
-        <button class="btn-category">Pasta</button>
-        <button class="btn-category">Pork</button>
-        <button class="btn-category">Seafood</button>
-        <button class="btn-category">Side</button>
-        <button class="btn-category">Soup</button>
-        <button class="btn-category">Starter</button>
-        <button class="btn-category">Vegan</button>
-        <button class="btn-category">Vegetarian</button>
-      </div>
+      <section class="hero">
+        <div class="img-hero">
+          <picture>
+            <source
+              srcset="../images/card1080px-desk1x.webp 1x"
+              media="(min-width: 1280px)"
+            />
+            <source
+              srcset="../images/card1408px-tab2x.webp 2x"
+              media="(min-width: 768px)"
+            />
+            <img
+              src="../images/card670px-mob2x.webp"
+              alt="dish"
+              class="dish-img"
+            />
+          </picture>
+        </div>
+      </section>
+      <section class="favorites">
+        <div class="btn-wrapper">
+          <button class="btn-category all-btn onActive">All categories</button>
+        </div>
+        <div class="not-found-wrapper is-hidden">
+          <svg class="element-icon">
+            <use xlink:href="../images/sprite.svg#icon-elements"></use>
+          </svg>
+          <p class="element-description">
+            It appears that you haven't added any recipes to your favorites yet.
+            To get started, you can add recipes that you like to your favorites
+            for easier access in the future.
+          </p>
+        </div>
+        <ul class="favorites-list"></ul>
+      </section>
     </main>
     <script type="module" src="../js/favorites.js"></script>
   </body>

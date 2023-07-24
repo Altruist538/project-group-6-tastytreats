@@ -1,7 +1,4 @@
-.main {
-}
-
-.img-wrapper {
+.hero {
   display: flex;
   justify-content: center;
   padding-bottom: 40px;
@@ -10,6 +7,7 @@
 
 .dish-img {
   object-fit: cover;
+  border-radius: 15px;
 }
 
 .btn-wrapper {
@@ -36,4 +34,26 @@
   color: #f8f8f8;
   background-color: #9bb537;
   border: none;
+}
+
+.not-found-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.element-icon {
+  width: 68px;
+  height: 58px;
+}
+.element-description {
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  max-width: 335px;
+}
+
+.is-hidden {
+  visibility: hidden;
+  display: none;
 }
