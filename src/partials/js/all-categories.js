@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
 const btnEl = document.querySelector('.js-all-categories-button');
 const categoriesList = document.querySelector('.categories-list');
@@ -21,7 +22,7 @@ fetch(url)
     console.error(error);
   });
 
-categoriesList.addEventListener('click', onClick);
+categoriesList.addEventListener('click', searchOnTitle);
 
 function onClick(event) {
   const checkedCategory = event.target.textContent;
@@ -36,5 +37,3 @@ function onClick(event) {
       console.log(category);
     });
 }
-
-// onClick();
