@@ -32,5 +32,8 @@ function onClick(event) {
     .then(response => response.json())
     .then(data => {
       const { results } = data;
+    })
+    .catch(error => {
+      console.error(error);
     });
 }
