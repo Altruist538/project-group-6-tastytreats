@@ -29,6 +29,12 @@
   background-color: #9bb537;
 }
 
+.categories-list {
+  width: 326px;
+  height: 198px;
+  overflow: auto;
+}
+
 .categories-list-element {
   color: rgba(5, 5, 5, 0.3);
   font-size: 14px;
@@ -51,6 +57,21 @@
   padding-bottom: 9px;
 }
 
-.categories-list-element:hover {
+.categories-list-element:hover,
+.categories-list-element:focus {
   color: #9bb537;
+  outline-color: transparent;
+}
+
+.categories-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.categories-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.categories-list::-webkit-scrollbar-thumb {
+  background-color: rgba(5, 5, 5, 0.18);
+  border-radius: 12px;
 }
