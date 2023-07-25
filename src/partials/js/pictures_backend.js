@@ -56,7 +56,6 @@ export function renderImgCard(response) {
     </a>`;
   });
   galleryEl.innerHTML = listArr.join('');
-  lightbox.refresh();
 }
 // Вызываем функцию fetchImages() при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
