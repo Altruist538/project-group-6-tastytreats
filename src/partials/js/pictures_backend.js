@@ -4,9 +4,16 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const galleryEl = document.querySelector('.gallery');
 // const myApiKey = '38289805-c9ad3276c7a7da4bbf01374d5';
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
-const perPage = 9;
+let perPage = 0;
+if (windowWidth < 768) {
+ perPage= 6;
+} else if (windowWidth > 768 && windowWidth < 1280) {
+  perPage = 8;
+} else if (windowWidth > 1280) {
+  perPage= 9;
+}
 let pageCounter = 1;
-async function fetchImages() {
+export function fetchImages() {
   try {
     let response = await axios.get(BASE_URL, {
       params: {
@@ -21,7 +28,7 @@ async function fetchImages() {
     });
       console.log(response.data.results);
 
-      renderImgCard(response.data.results);
+      export renderImgCard(response.data.results);
     // const totalHits = response.data.totalHits;
     // const pagesCount = Math.ceil(totalHits / perPage);
     // if (response.data.hits.length === 0) {
