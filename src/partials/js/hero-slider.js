@@ -16,7 +16,7 @@ function sliderStart() {
 
 const slider = document.querySelector('.slider');
 // отримав інфу з бека
-let arrEvents = null;
+// let arrEvents = null;
 
 async function fetchEvents() {
   let response = await fetch(
