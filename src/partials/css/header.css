@@ -134,6 +134,9 @@
   }
 }
 
+.current {
+  color: var(--accent-color);
+}
 .link {
   position: relative;
   padding: 24px 0;
