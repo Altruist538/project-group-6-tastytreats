@@ -13,19 +13,21 @@ if (windowWidth < 768) {
   perPage = 9;
 }
 let pageCounter = 1;
-export async function fetchImages() {
+export async function fetchImages(category) {
   try {
-    let response = await axios.get(BASE_URL, {
-      params: {
-        q: '', // Пустой запрос, чтобы получить все картинки при загрузке страницы
-        image_type: 'photo',
-        orientation: 'horizontal',
-        safesearch: true,
-        page: pageCounter,
-        per_page: perPage,
-      },
-    });
-    console.log(response.data.results);
+    let response = await axios.get(
+      BASE_URL + (category ? `?category=${category}` : ''),
+      {
+        params: {
+          q: '', // Пустой запрос, чтобы получить все картинки при загрузке страницы
+          image_type: 'photo',
+          orientation: 'horizontal',
+          safesearch: true,
+          page: pageCounter,
+          per_page: perPage,
+        },
+      }
+    );
 
     renderImgCard(response.data.results);
   } catch (error) {
@@ -35,7 +37,7 @@ export async function fetchImages() {
 
 export function renderImgCard(response) {
   let listArr = response.map(resp => {
-    return `<a href="${resp.largeImageURL}" class="gallery__link">
+    return `<a href="${resp.thumb}" class="gallery__link">
       <img src="${resp.preview}" alt="${resp.title}" loading="lazy" />
       <div class="info">
         <p class="info-item">
@@ -53,7 +55,7 @@ export function renderImgCard(response) {
       </div>
     </a>`;
   });
-  galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
+  galleryEl.innerHTML = listArr.join('');
   lightbox.refresh();
 }
 // Вызываем функцию fetchImages() при загрузке страницы
