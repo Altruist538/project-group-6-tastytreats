@@ -55,10 +55,13 @@
   padding-bottom: 9px;
 }
 
-.categories-list-element:hover,
-.categories-list-element:focus {
+.categories-list-element:hover {
   color: #9bb537;
   outline-color: transparent;
+}
+
+.categories-list-element.is-active {
+  color: #9bb537;
 }
 
 .categories-list::-webkit-scrollbar {
