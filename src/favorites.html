@@ -11,7 +11,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="/src/partials/css/index.css" />
-    <link rel="stylesheet" href="/src/partials/css/header.css" />
   </head>
   <body>
     <!-- header -->
@@ -20,7 +19,9 @@
         <div class="header-nav">
           <ul style="list-style: none" class="header-menu">
             <li><a class="link" href="./index.html">Home</a></li>
-            <li><a class="link current" href="./favorites.html">Favorites</a></li>
+            <li>
+              <a class="link current" href="./favorites.html">Favorites</a>
+            </li>
           </ul>
           <a href="./index.html" class="navig-logo"
             ><span class="navig-logoitem">tasty</span>treats.</a
@@ -35,14 +36,14 @@
           </svg>
         </div>
 
-        <button class="header-burger js-open-menu" type="button">
+        <button class="header-burger js-open-menu-hed" type="button">
           <svg width="32" height="32">
             <use href="./partials/images/sprite.svg#icon-burger"></use>
           </svg>
         </button>
 
-        <div class="mobile-menu js-menu-container">
-          <button class="model-close-js js-close-menu" type="button">
+        <div class="mobile-menu-head js-menu-container">
+          <button class="model-close-js-hed js-close-menu-hed" type="button">
             <svg class="close">
               <use href="./partials/images/sprite.svg#icon-x"></use>
             </svg>
@@ -60,6 +61,6 @@
       </div>
     </header>
     <!-- header /-->
-    <script src="./partials/js/header.js"></script>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
