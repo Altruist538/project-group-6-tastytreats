@@ -22,8 +22,8 @@
 <path d="M35.764 24.706c0 6.108-4.951 11.059-11.059 11.059s-11.059-4.951-11.059-11.059c0-6.108 4.951-11.059 11.059-11.059s11.059 4.951 11.059 11.059z"></path>
 </symbol>
 <symbol id="icon-x" viewBox="0 0 60 60">
-<path fill="none" stroke="#f8f8f8" style="stroke: var(--color1, #f8f8f8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.75" d="M45 15l-30 30"></path>
-<path fill="none" stroke="#f8f8f8" style="stroke: var(--color1, #f8f8f8)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.75" d="M15 15l30 30"></path>
+<path  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.75" d="M45 15l-30 30"></path>
+<path  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.75" d="M15 15l30 30"></path>
 </symbol>
 <symbol id="icon-cart" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M12 29.333c0.736 0 1.333-0.597 1.333-1.333s-0.597-1.333-1.333-1.333v0c-0.736 0-1.333 0.597-1.333 1.333s0.597 1.333 1.333 1.333v0zM26.667 29.333c0.736 0 1.333-0.597 1.333-1.333s-0.597-1.333-1.333-1.333v0c-0.736 0-1.333 0.597-1.333 1.333s0.597 1.333 1.333 1.333v0z"></path>
