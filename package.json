@@ -20,14 +20,10 @@
   "dependencies": {
     "axios": "^1.4.0",
     "jquery": "^3.7.0",
-<<<<<<< Updated upstream
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
     "simple-lightbox": "^2.1.0",
     "simplelightbox": "^2.14.1"
-=======
-    "modern-normalize": "^1.1.0"
->>>>>>> Stashed changes
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
