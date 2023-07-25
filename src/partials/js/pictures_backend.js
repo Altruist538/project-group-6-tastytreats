@@ -11,7 +11,7 @@ if (windowWidth < 768) {
   perPage = 8;
 } else if (windowWidth > 1280) {
   perPage= 9;
-}
+}ƒ
 let pageCounter = 1;
 export function fetchImages() {
   try {
@@ -65,7 +65,6 @@ async function renderImgCard(response) {
     </a>`;
   });
   galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
-  lightbox.refresh();
 }
 // Вызываем функцию fetchImages() при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
