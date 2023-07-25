@@ -62,7 +62,3 @@ export function renderImgCard(response) {
 document.addEventListener('DOMContentLoaded', () => {
   fetchImages();
 });
-let lightbox = new SimpleLightbox('.gallery a', {
-  captionDelay: 100,
-  captionsData: 'alt',
-});
