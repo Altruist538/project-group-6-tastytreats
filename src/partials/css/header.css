@@ -170,7 +170,7 @@
 
 /* mobile-menu */
 
-.mobile-menu {
+.mobile-menu-head {
   position: fixed;
   top: 0;
   right: 0;
@@ -182,16 +182,16 @@
 }
 
 @media screen and (min-width: 768px) {
-  .mobile-menu {
+  .mobile-menu-head {
     display: none;
   }
 }
 
-.mobile-menu.is-open {
+.mobile-menu-head.is-open-h {
   transform: translateX(0);
 }
 
-.model-close-js {
+.model-close-js-hed {
   position: absolute;
   top: 28px;
   display: flex;
@@ -205,8 +205,8 @@
   cursor: pointer;
 }
 
-.model-close-js:hover,
-.model-close-js:focus {
+.model-close-js-hed:hover,
+.model-close-js-hed:focus {
   background: var(--primary-white-color);
   border-radius: 2px;
   fill: var(--color-inverted);
