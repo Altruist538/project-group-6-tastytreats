@@ -33,7 +33,7 @@ export async function fetchImages() {
 
 export function renderImgCard(response) {
   let listArr = response.map(resp => {
-    return `<a href="${resp.largeImageURL}" class="gallery__link">
+    return `<div class="gallery__link">
       <img src="${resp.preview}" alt="${resp.title}" loading="lazy" />
       <div class="info">
         <p class="info-item">
@@ -49,7 +49,7 @@ export function renderImgCard(response) {
           <b>Area: ${resp.area}</b>
         </p>
       </div>
-    </a>`;
+    </div>`;
   });
   galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
 }
