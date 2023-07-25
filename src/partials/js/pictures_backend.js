@@ -1,6 +1,4 @@
 import axios from 'axios';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 const galleryEl = document.querySelector('.gallery');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const windowWidth = document.documentElement.clientWidth;
@@ -54,13 +52,8 @@ export function renderImgCard(response) {
     </a>`;
   });
   galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
-  lightbox.refresh();
 }
 // Вызываем функцию fetchImages() при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
   fetchImages();
-});
-let lightbox = new SimpleLightbox('.gallery a', {
-  captionDelay: 100,
-  captionsData: 'alt',
 });
