@@ -1,4 +1,5 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+@import url("./modal-recipes.css");
 :root {
   /* White Theme */
   --primary-white-color: #ffffff;

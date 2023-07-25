@@ -1,10 +1,7 @@
-
-//import { findRecipes, patchRating } from './API';//
-//import { measureRating } from '../renders/renders';//
-//import { ratingScale } from '../renders/renders';//
+import { fetchRecipes } from './API';
 import SmoothScrollbar from 'smooth-scrollbar';
 import Notiflix from 'notiflix';
-// import { isValidEmail } from './orderForm';
+
 const refs = {
   closeModalBtn: document.querySelector('.close-modal'),
   backdropModal: document.querySelector('.backdrop-recipes'),
@@ -13,18 +10,10 @@ const refs = {
   backdropModal: document.querySelector('.backdrop-recipes'),
   saveRecipeBtn: document.querySelector('.save-recipes-btn'),
   giveRatingBtn: document.querySelector('.give-rating-btn'),
-  rateModal: document.querySelector('.modal-rating'),
-  closeRate: document.querySelector('.close-rate-modal'),
-  modalRateList: document.querySelector('.modal-rate-list'),
-  rateVal: document.querySelector('.rate-range-value'),
-  rateRage: document.querySelector('.rate-range-input'),
-  rateEmail: document.querySelector('.rate-email-input'),
-  rateForm: document.querySelector('.rate-form'),
-  sendRateBtn: document.querySelector('.send-rating-btn'),
-};
+ };
 // open\close a modal window
 
-export function OpenModal(currentBtn) {
+export async function OpenModal(currentBtn) {
   refs.closeModalBtn.addEventListener('click', CloseModal);
   refs.backdropModal.addEventListener('click', CloseOnClick);
   //   refs.giveRatingBtn.addEventListener('click', OpenRateModal);
@@ -69,9 +58,20 @@ function CloseOnBtnClick(e) {
 
 // bild the page
 
+export async function findRecipes(id) {
+  try {
+    const response = await fetch(`/api/recipes/${id}`);
+    const recipe = await response.json();
+    return recipe;
+  } catch (error) {
+    console.error('Error fetching recipe:', error);
+    throw error;
+  }
+}
+
 async function genereteRecipe(id) {
   try {
-    const recipe = await findRecipes(id);
+    const recipe = await fetchRecipes(id);
 
     const { title, description, preview, rating, _id, category } = recipe;
 
