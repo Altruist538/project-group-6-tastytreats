@@ -22,18 +22,18 @@ fetch(url)
     console.error(error);
   });
 
-categoriesList.addEventListener('click', onClick);
+categoriesList.addEventListener('click', getRecipesByCategory);
 
-function onClick(event) {
+async function getRecipesByCategory(event) {
   const checkedCategory = event.target.textContent;
-  fetch(
-    'https://tasty-treats-backend.p.goit.global/api/recipes?page=1&limit=500'
-  )
-    .then(response => response.json())
-    .then(data => {
-      const { results } = data;
-    })
-    .catch(error => {
-      console.error(error);
-    });
+  try {
+    const { data } = await axios.get(
+      `https://tasty-treats-backend.p.goit.global/api/recipes?category=${checkedCategory}`
+    );
+    return data;
+    console.log(data);
+  } catch (error) {
+    throw new Error('An error occurred while fetching receipes.');
+  }
+  // Додати функцію рендера карток з секції Олександра
 }
