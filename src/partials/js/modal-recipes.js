@@ -1,14 +1,12 @@
-import { fetchRecipes } from './API';
+import { fetchRecipes } from './API.js';
 import SmoothScrollbar from 'smooth-scrollbar';
 import Notiflix from 'notiflix';
-
 const refs = {
   closeModalBtn: document.querySelector('.close-modal'),
   backdropModal: document.querySelector('.backdrop-recipes'),
   mainModalRecipes: document.querySelector('.modal-recipes'),
   modalRecipes: document.querySelector('.modal-recipes-js'),
-  backdropModal: document.querySelector('.backdrop-recipes'),
-  saveRecipeBtn: document.querySelector('.save-recipes-btn'),
+ saveRecipeBtn: document.querySelector('.save-recipes-btn'),
   giveRatingBtn: document.querySelector('.give-rating-btn'),
  };
 // open\close a modal window
@@ -58,7 +56,7 @@ function CloseOnBtnClick(e) {
 
 // bild the page
 
-export async function findRecipes(id) {
+export async function fetchRecipes (id) {
   try {
     const response = await fetch(`/api/recipes/${id}`);
     const recipe = await response.json();
