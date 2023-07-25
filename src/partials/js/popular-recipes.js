@@ -1,8 +1,8 @@
 const recipiesEl = document.querySelector('.popular-list');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/popular';
 
-console.log(recipiesEl);
-console.log(BASE_URL);
+// console.log(recipiesEl);
+// console.log(BASE_URL);
 
 async function getRecipies() {
   try {
