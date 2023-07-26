@@ -40,6 +40,7 @@ async function getRecipesByCategory(event) {
     const { data } = await axios.get(
       `https://tasty-treats-backend.p.goit.global/api/recipes?category=${checkedCategory}`
     );
+    console.log(data);
     return data;
   } catch (error) {
     throw new Error('An error occurred while fetching receipes.');
