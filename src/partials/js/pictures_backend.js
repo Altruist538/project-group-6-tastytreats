@@ -31,25 +31,35 @@ export async function fetchImages() {
   }
 }
 
-export function renderImgCard(response) {
-  let listArr = response.map(resp => {
-    return `<div class="gallery__link">
-      <img src="${resp.preview}" alt="${resp.title}" loading="lazy" />
+export const getRecipeMarkup = ({
+  preview,
+  title,
+  category,
+  description,
+  area,
+}) => {
+  return `<div class="gallery__link">
+      <img src="${preview}" alt="${title}" loading="lazy" />
       <div class="info">
         <p class="info-item">
-          <b>Title: ${resp.title}</b>
+          <b>Title: ${title}</b>
         </p>
         <p class="info-item">
-          <b>Category: ${resp.category}</b>
+          <b>Category: ${category}</b>
         </p>
         <p class="info-item">
-          <b>Comments: ${resp.description}</b>
+          <b>Comments: ${description}</b>
         </p>
-                <p class="info-item">
-          <b>Area: ${resp.area}</b>
+        <p class="info-item">
+          <b>Area: ${area}</b>
         </p>
       </div>
     </div>`;
+};
+
+export function renderImgCard(response) {
+  let listArr = response.map(resp => {
+    return getRecipeMarkup(resp);
   });
   galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
 }

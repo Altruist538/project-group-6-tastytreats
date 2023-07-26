@@ -1,3 +1,5 @@
+import { getRecipeMarkup } from './pictures_backend';
+
 const notFound = document.querySelector('.not-found-wrapper');
 const recipes = document.querySelector('.favorites-list');
 const categoriesEl = document.querySelector('.btn-wrapper');
@@ -49,8 +51,7 @@ function generateStorageList(pageSet = 1) {
     const objData = groupObjects(data, perPage);
 
     const listMarkup = objData[pageSet].reduce(
-      (markup, { title, description, preview, rating, id, category }) =>
-        markup + renderItem(title, description, preview, rating, id, category),
+      (markup, recipe) => markup + getRecipeMarkup(recipe),
       ''
     );
 
@@ -119,8 +120,7 @@ function filterByCategory(evt) {
   const objData = groupObjects(categoryRecipes, perPage);
 
   const listMarkup = objData[pageSet].reduce(
-    (markup, { title, description, preview, rating, id, category }) =>
-      markup + renderItem(title, description, preview, rating, id, category),
+    (markup, recipe) => markup + getRecipeMarkup(recipe),
     ''
   );
 
