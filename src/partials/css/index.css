@@ -5,7 +5,7 @@
 @import url('./hero.css');
 @import url('./order-now.css');
 @import url('./popular-recipes.css');
-
+@import url('./favorites.css');
 @import url('./header.css');
 
 :root {
