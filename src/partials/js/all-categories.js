@@ -24,54 +24,25 @@ fetch(url)
   });
 
 async function getRecipesByCategory(event) {
-  const buttons = document.querySelectorAll('.all-categories-button');
+  const buttons = document.querySelectorAll('.button');
+
   buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      buttons.forEach(btn => btn.classList.remove('is-active'));
+    if (button.id === 'desired-button') {
       button.classList.add('is-active');
-    });
+    } else {
+      button.classList.remove('is-active');
+    }
   });
 
   const checkedCategory = event.target.textContent;
 
-  // try {
-  //   const { data } = await axios.get(
-  //     `https://tasty-treats-backend.p.goit.global/api/recipes?category=${checkedCategory}`
-  //   );
-  //   return data;
-  // } catch (error) {
-  //   throw new Error('An error occurred while fetching receipes.');
-  // }
-
-  const windowWidth = document.documentElement.clientWidth;
-  let perPage = 0;
-  if (windowWidth < 768) {
-    perPage = 6;
-  } else if (windowWidth > 768 && windowWidth < 1280) {
-    perPage = 8;
-  } else if (windowWidth > 1280) {
-    perPage = 9;
-  }
-  let pageCounter = 1;
-
   try {
-    let response = await axios.get(
-      `https://tasty-treats-backend.p.goit.global/api/recipes?category=${checkedCategory}`,
-      {
-        params: {
-          q: '', // Пустой запрос, чтобы получить все картинки при загрузке страницы
-          image_type: 'photo',
-          orientation: 'horizontal',
-          safesearch: true,
-          page: pageCounter,
-          per_page: perPage,
-        },
-      }
+    const { data } = await axios.get(
+      `https://tasty-treats-backend.p.goit.global/api/recipes?category=${checkedCategory}`
     );
-
-    renderImgCard(response.data.results);
+    return data;
   } catch (error) {
-    console.log(`Failed to fetch images: ${error}`);
+    throw new Error('An error occurred while fetching receipes.');
   }
 
   // Додати функцію рендера карток з секції Олександра
