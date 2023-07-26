@@ -1,3 +1,4 @@
+import { getRecipeMarkup } from './pictures_backend';
 const notFound = document.querySelector('.not-found-wrapper');
 const recipes = document.querySelector('.favorites-list');
 const categoriesEl = document.querySelector('.btn-wrapper');
@@ -20,7 +21,8 @@ function groupObjects(array, groupSize) {
 function onFavoritesReload() {
   const categoryMarkup = generateCategoryList();
 
-  const allCatBtn = `<button class="button-fav all-btn onActive" name="all">All categories</button>`;
+  const allCatBtn = `<button class="button-fav all-btn onActive" name="all"></button>`;
+
 
   const data = JSON.parse(localStorage.getItem('favorites'));
 
@@ -40,6 +42,10 @@ function generateStorageList(pageSet = 1) {
   const storage = localStorage.getItem('favorites');
   const data = JSON.parse(storage);
 
+
+  console.log('DATA', data);
+
+
   allBtn.style.display = 'none';
 
   if (data && data.length) {
@@ -49,8 +55,8 @@ function generateStorageList(pageSet = 1) {
     const objData = groupObjects(data, perPage);
 
     const listMarkup = objData[pageSet].reduce(
-      (markup, { title, description, preview, rating, id, category }) =>
-        markup + renderItem(title, description, preview, rating, id, category),
+      (markup, recipe) => markup + getRecipeMarkup(recipe),
+
       ''
     );
 
@@ -119,8 +125,9 @@ function filterByCategory(evt) {
   const objData = groupObjects(categoryRecipes, perPage);
 
   const listMarkup = objData[pageSet].reduce(
-    (markup, { title, description, preview, rating, id, category }) =>
-      markup + renderItem(title, description, preview, rating, id, category),
+
+    (markup, recipe) => markup + getRecipeMarkup(recipe),
+
     ''
   );
 
@@ -162,5 +169,6 @@ function checkCategory(target) {
   else allBtn.style.display = 'block';
 }
 
-recipes.addEventListener('click', handleClickOnRecipes);
+
+
 document.addEventListener('DOMContentLoaded', onFavoritesReload);
