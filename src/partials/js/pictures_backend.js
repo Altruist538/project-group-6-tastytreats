@@ -15,12 +15,8 @@ export async function fetchImages() {
   try {
     let response = await axios.get(BASE_URL, {
       params: {
-        q: '', // Пустой запрос, чтобы получить все картинки при загрузке страницы
-        image_type: 'photo',
-        orientation: 'horizontal',
-        safesearch: true,
         page: pageCounter,
-        per_page: perPage,
+        limit: perPage,
       },
     });
     // console.log(response.data.results);
