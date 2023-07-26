@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TastyTreats</title>
+    <title>favorites</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,15 +12,16 @@
     />
     <link rel="stylesheet" href="/src/partials/css/index.css" />
   </head>
-
   <body>
     <!-- header -->
     <header class="header">
       <div class="container header-container">
         <div class="header-nav">
           <ul style="list-style: none" class="header-menu">
-            <li><a class="link current" href="./index.html">Home</a></li>
-            <li><a class="link" href="./favorites.html">Favorites</a></li>
+            <li><a class="link" href="./index.html">Home</a></li>
+            <li>
+              <a class="link current" href="./favorites.html">Favorites</a>
+            </li>
           </ul>
           <a href="./index.html" class="navig-logo"
             ><span class="navig-logoitem">tasty</span>treats.</a
@@ -60,16 +61,6 @@
       </div>
     </header>
     <!-- header /-->
-    <!-- hero -->
-
-    <!-- hero /-->
-    <main>
-      <include src="./partials/html/hero.html"></include>
-      <include src="./partials/html/order-now.html"></include>
-      <include src="./partials/html/all-categories.html"></include>
-      <include src="./pictures_backend.html"></include>
-      <include src="./popular-recipes.html"></include>
-    </main>
     <script type="module" src="index.js"></script>
   </body>
 </html>

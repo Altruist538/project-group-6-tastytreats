@@ -1,0 +1,55 @@
+<div class="backdrop-order">
+  <div class="modal-order">
+    <button type="button" class="close-modal-order">
+      <svg width="20" height="20">
+        <use href="./partials/images/sprite.svg#icon-x"></use>
+      </svg>
+    </button>
+    <form action="#" class="modal-order-form">
+      <p class="name-modal">order now</p>
+      <label class="label-form"
+        ><span class="label-text">Name</span
+        ><input
+          type="text"
+          name="name"
+          required
+          placeholder="Your Name"
+          pattern="[A-Za-z]{1,32}"
+          class="order-input"
+        />
+      </label>
+      <label class="label-form"
+        ><span class="label-text">Phone number</span
+        ><input
+          type="tel"
+          name="tel"
+          required
+          pattern="[0-9]{10}"
+          placeholder="Your phone number"
+          class="order-input"
+        />
+      </label>
+      <label class="label-form"
+        ><span class="label-text">Email</span>
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Your email"
+          pattern="[^@\s]+@[^@\s]+"
+          class="order-input"
+      /></label>
+      <label class="label-form label-textarea"
+        ><span class="label-text">Comment</span
+        ><textarea
+          type="text"
+          name="comment"
+          placeholder="Please leave your comment"
+          rows="4"
+          class="order-textarea"
+        ></textarea>
+      </label>
+      <button type="submit" class="btn-submit">Send</button>
+    </form>
+  </div>
+</div>
