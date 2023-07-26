@@ -3,3 +3,4 @@ import './partials/js/all-categories';
 import './partials/js/hero-slider';
 import './partials/js/slick.min';
 import './partials/js/order-now';
+import './partials/js/recipes-picture';

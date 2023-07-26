@@ -1,0 +1,60 @@
+@media screen and (max-width: 767px) {
+    .gallery {
+        margin: 0 auto;
+        max-width: 335px;
+        display: flex;
+            flex-direction: column;
+                        gap: 24px;
+    };
+
+  .gallery__link{
+     position: relative; 
+   
+     } 
+
+    .img-gallery {
+       width: 335px;
+        height: 335px;
+        border-radius: 8px;
+        background-image: linear-gradient(rgba(5, 5, 5, 1), rgba(5, 5, 5, 1)), url('https://res.cloudinary.com/ddbvbv5sp/image/upload/v1678560402/mwtf7uqrnsxvlpjqtslc.jpg');
+    position: absolute;
+    };
+        .img-gallery:hover,
+        .img-gallery:focus{
+            border: 1px solid var(--primaty-black-color);
+        }
+
+        .info{
+        position: absolute;
+        margin-left: 16px;
+       bottom: 0;
+        }
+       .info-title{
+               line-height: 1.28;
+        color: var(--text-white-color);
+        padding-bottom: 8px;
+        font-size: 14px;
+           text-transform: uppercase;
+    };
+    .info-text{
+        font-size: 12px;
+        line-height: 1.33;
+        color: var(--text-white-color);
+    }
+}
+.icon-heart{
+    position: relative;
+    margin-right: 16px;
+        position: relative;
+    margin-top: 16px;
+    }
+.button{
+    padding: 8px 14px;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: var(--text-white-color);
+    border: transparent;
+    margin-top: 16px;
+    margin-left: 16px;
+}
+

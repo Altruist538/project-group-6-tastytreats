@@ -8,6 +8,8 @@
 
 @import url('./header.css');
 
+@import url('./recipes-picture.css');
+
 :root {
   /* White Theme */
   --primary-white-color: #ffffff;

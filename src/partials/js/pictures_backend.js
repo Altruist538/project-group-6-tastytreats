@@ -34,19 +34,19 @@ export async function fetchImages() {
 export function renderImgCard(response) {
   let listArr = response.map(resp => {
     return `<div class="gallery__link">
-      <img src="${resp.preview}" alt="${resp.title}" loading="lazy" />
+      <img src="${resp.preview}" alt="${resp.title}" loading="lazy" class="img-gallery"/>
       <div class="info">
         <p class="info-item">
-          <b>Title: ${resp.title}</b>
+          <b class="info-title">${resp.title}</b>
         </p>
         <p class="info-item">
-          <b>Category: ${resp.category}</b>
+          <b class="info-title"></b>
         </p>
         <p class="info-item">
-          <b>Comments: ${resp.description}</b>
+          <b class='info-text'> ${resp.description}</b>
         </p>
                 <p class="info-item">
-          <b>Area: ${resp.area}</b>
+          <b></b>
         </p>
       </div>
     </div>`;
