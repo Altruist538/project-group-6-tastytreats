@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { renderImgCard, fetchImages } from './pictures_backend';
+const galleryEl = document.querySelector('.gallery');
 
 const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
@@ -25,26 +27,45 @@ fetch(url)
 categoriesList.addEventListener('click', getRecipesByCategory);
 
 async function getRecipesByCategory(event) {
-  const buttons = document.querySelectorAll('.all-categories-button');
+  const buttons = document.querySelectorAll('.button');
+
   buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      buttons.forEach(btn => btn.classList.remove('is-active'));
+    if (button.id === 'desired-button') {
       button.classList.add('is-active');
-    });
+    } else {
+      button.classList.remove('is-active');
+    }
   });
 
   const checkedCategory = event.target.textContent;
 
-  try {
-    const { data } = await axios.get(
-      `https://tasty-treats-backend.p.goit.global/api/recipes?category=${checkedCategory}`
-    );
-    return data;
-    console.log(data);
-  } catch (error) {
-    throw new Error('An error occurred while fetching receipes.');
+  let cardsPperPage = 0;
+  let pageCounter = 1;
+
+  const windowWidth = document.documentElement.clientWidth;
+  if (window.innerWidth < 768) {
+    cardsPperPage = 6;
+  } else if (window.innerWidth >= 768 && window.innerWidth < 1200) {
+    cardsPperPage = 8;
+  } else {
+    cardsPperPage = 9;
   }
-  // Додати функцію рендера карток з секції Олександра
+
+  try {
+    let response = await axios.get(BASE_URL, {
+      params: {
+        category: checkedCategory,
+        page: pageCounter,
+        limit: cardsPperPage,
+      },
+    });
+
+    galleryEl.innerHTML = '';
+
+    renderImgCard(response.data.results);
+  } catch (error) {
+    console.log(`Failed to fetch images: ${error}`);
+  }
 }
 
 btnEl.addEventListener('click', handleAllCategoriesBtnClick);
@@ -57,5 +78,6 @@ function handleAllCategoriesBtnClick() {
     });
   });
 
-  // Додати Сашині функцію запиту всіх категорій та рендеру розмітки
+  galleryEl.innerHTML = '';
+  fetchImages();
 }
