@@ -23,7 +23,7 @@ export async function fetchImages() {
         per_page: perPage,
       },
     });
-    console.log(response.data.results);
+    // console.log(response.data.results);
 
     renderImgCard(response.data.results);
   } catch (error) {
