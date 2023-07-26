@@ -36,17 +36,17 @@ export function renderImgCard(response) {
     return `<div class="gallery__link">
       <img src="${resp.preview}" alt="${resp.title}" loading="lazy" class="img-gallery"/>
       <div class="info">
-        <p class="info-item">
-          <b class="info-title">${resp.title}</b>
+        <p class="info-title">${resp.title}
+          <b class="info-text">${resp.description}</b>
         </p>
-        <p class="info-item">
-          <b class="info-title"></b>
+        <p class="info-item">${resp.title}
+          <b class="info-text">${resp.description}</b>
         </p>
-        <p class="info-item">
-          <b class='info-text'> ${resp.description}</b>
+        <p class="info-item">${resp.title}
+          <b class="info-text"> ${resp.description}</b>
         </p>
-                <p class="info-item">
-          <b></b>
+                <p class="info-item">${resp.title}
+          <b class="info-text">${resp.description}</b>
         </p>
       </div>
     </div>`;
