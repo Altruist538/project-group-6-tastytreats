@@ -91,6 +91,7 @@
   }
 
   .categories-list {
+    width: 176px;
     height: 416px;
   }
 
@@ -101,6 +102,10 @@
 
 @media screen and (min-width: 1280px) {
   .all-categories-section {
+    width: 235px;
+  }
+
+  .categories-list {
     width: 235px;
   }
 }
