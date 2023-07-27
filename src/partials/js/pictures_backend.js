@@ -78,6 +78,7 @@ export const getRecipeMarkup = ({
         <div class="wrapper-bottom">
         <div class="rating-wrapper">
         <p class="rating">${rating.toFixed(1)}</p>
+
          <div class="rating-container">      
       <svg class="star ${s1}" width="18" height="18" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" data-rating="1">
         <path
@@ -110,6 +111,7 @@ export const getRecipeMarkup = ({
       </svg>
       
      </div>
+
         </div>
                 <div class="card-btn-wrapper">
 
