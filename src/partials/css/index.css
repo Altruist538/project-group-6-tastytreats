@@ -6,6 +6,7 @@
 @import url('./cards.css');
 /* @import url('./favorites.css'); */
 @import url('./header.css');
+@import url('./rating.css');
 
 :root {
   /* White Theme */
