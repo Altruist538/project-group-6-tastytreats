@@ -1,5 +1,6 @@
 import debounce from 'lodash.debounce';
-import { fetchImages } from './pictures_backend';
+import { fetchImages, renderImgCard } from './pictures_backend';
+import { getRecipesByCategory } from './all-categories';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
@@ -42,36 +43,36 @@ wordSearchEl.addEventListener('blur', () => {
 });
 
 // Запит на бек по данним з search
-async function searchReceipesByQuery(event) {
-  event.preventDefault();
-  let query = event.target.elements.searchQuery.value;
-  console.log(query);
+
+wordSearchEl.addEventListener('input', searchRecipesByQuery);
+
+async function searchRecipesByQuery() {
+  const searchQuery = wordSearchEl.value.trim();
+  let cardsPperPage = 0;
+  let pageCounter = 1;
+
+  const windowWidth = document.documentElement.clientWidth;
+  if (window.innerWidth < 768) {
+    cardsPperPage = 6;
+  } else if (window.innerWidth >= 768 && window.innerWidth < 1200) {
+    cardsPperPage = 8;
+  } else {
+    cardsPperPage = 9;
+  }
+
+  try {
+    let response = await axios.get(BASE_URL, {
+      params: {
+        title: searchQuery,
+        page: pageCounter,
+        limit: cardsPperPage,
+      },
+    });
+
+    galleryEl.innerHTML = '';
+
+    renderImgCard(response.data.results);
+  } catch (error) {
+    console.log(`Failed to fetch images: ${error}`);
+  }
 }
-
-//   let cardsPperPage = 0;
-//   let pageCounter = 1;
-
-//   const windowWidth = document.documentElement.clientWidth;
-//   if (window.innerWidth < 768) {
-//     cardsPperPage = 6;
-//   } else if (window.innerWidth >= 768 && window.innerWidth < 1200) {
-//     cardsPperPage = 8;
-//   } else {
-//     cardsPperPage = 9;
-//   }
-
-//   try {
-//     let response = await axios.get(BASE_URL, {
-//       params: {
-//         category: checkedCategory,
-//         page: pageCounter,
-//         limit: cardsPperPage,
-//       },
-//     });
-
-//     galleryEl.innerHTML = '';
-
-//     renderImgCard(response.data.results);
-//   } catch (error) {
-//     console.log(`Failed to fetch images: ${error}`);
-//   }
