@@ -22,7 +22,8 @@
     "jquery": "^3.7.0",
     "lodash.debounce": "^4.0.8",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "pagination": "^0.4.6"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
