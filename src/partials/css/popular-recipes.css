@@ -4,7 +4,7 @@
 }
 .recipe-content {
   padding: 16px 32px 16px 32px;
-  z-index: 3;
+  z-index: 1;
   position: relative;
 }
 
