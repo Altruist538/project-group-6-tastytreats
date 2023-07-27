@@ -1,4 +1,6 @@
 import axios from 'axios';
+// import startPagination from './pagination';
+// const paginationBox = document.getElementById('pagination');
 const galleryEl = document.querySelector('.gallery');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const windowWidth = document.documentElement.clientWidth;
@@ -11,6 +13,15 @@ if (windowWidth < 768) {
   perPage = 9;
 }
 let pageCounter = 1;
+// if (pageCounter > 1) {
+//   paginationBox.style.display = 'block';
+//   startPagination(page, perPage, pageCounter, page => {
+//     searchImagesAndDisplay(page, callback);
+//   });
+// } else {
+//   paginationBox.style.display = 'none';
+// }
+
 export async function fetchImages() {
   try {
     let response = await axios.get(BASE_URL, {
@@ -41,19 +52,38 @@ export const getRecipeMarkup = ({
   let s4;
   let s5;
 
-
-    let roundedRating = Math.round(rating);
+  let roundedRating = Math.round(rating);
   if (roundedRating === 1) {
-    s1 = 'filled'; s2 = ''; s3 = ''; s4 = ''; s5 = '';
-  } else if(roundedRating === 2){
-    s1 = 'filled';  s2 = 'filled'; s3 = ''; s4 = ''; s5 = '';
-  }else if(roundedRating === 3){
-    s1 = 'filled';  s2 = 'filled'; s3 = 'filled'; s4 = ''; s5 = '';
-  }else if(roundedRating === 4){
-    s1 = 'filled';  s2 = 'filled'; s3 = 'filled'; s4 = 'filled'; s5 = '';
-  }else if(roundedRating === 5){
-    s1 = 'filled';  s2 = 'filled'; s3 = 'filled'; s4 = 'filled'; s5 = 'filled';
-  };
+    s1 = 'filled';
+    s2 = '';
+    s3 = '';
+    s4 = '';
+    s5 = '';
+  } else if (roundedRating === 2) {
+    s1 = 'filled';
+    s2 = 'filled';
+    s3 = '';
+    s4 = '';
+    s5 = '';
+  } else if (roundedRating === 3) {
+    s1 = 'filled';
+    s2 = 'filled';
+    s3 = 'filled';
+    s4 = '';
+    s5 = '';
+  } else if (roundedRating === 4) {
+    s1 = 'filled';
+    s2 = 'filled';
+    s3 = 'filled';
+    s4 = 'filled';
+    s5 = '';
+  } else if (roundedRating === 5) {
+    s1 = 'filled';
+    s2 = 'filled';
+    s3 = 'filled';
+    s4 = 'filled';
+    s5 = 'filled';
+  }
 
   return `<div class="gallery__link">
       <img src="${preview}" class="gallery-img" alt="${title}" loading="lazy" />
