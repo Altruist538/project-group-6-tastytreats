@@ -1,19 +1,28 @@
-.backdrop-recipes.is-hidden-modal,
-.modal-recipes.is-hidden-modal,
-{
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transition: opacity 250ms linear, visibility 250ms linear;
-}
 
 .overflow-hidden {
   overflow: hidden;
 }
-
 .recipe-content {
   padding: 16px 32px 16px 32px;
+  z-index: 3;
+  position: relative;
+}
+
+.backdrop-recipes.is-hidden-modal,
+.modal-recipes.is-hidden-modal {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transition: opacity 250ms linear, visibility 250ms linear;
+}
+
+
+.backdrop-recipes:not(.is-hidden-modal),
+.modal-recipes:not(.is-hidden-modal) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 250ms linear, visibility 250ms linear;
 }
 
 /* Background */
