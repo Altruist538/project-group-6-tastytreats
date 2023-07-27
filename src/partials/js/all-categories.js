@@ -26,7 +26,7 @@ fetch(url)
 
 categoriesList.addEventListener('click', getRecipesByCategory);
 
-async function getRecipesByCategory(event) {
+export async function getRecipesByCategory(event) {
   const buttons = document.querySelectorAll('.button');
 
   buttons.forEach(button => {
@@ -70,7 +70,7 @@ async function getRecipesByCategory(event) {
 
 btnEl.addEventListener('click', handleAllCategoriesBtnClick);
 
-function handleAllCategoriesBtnClick() {
+export function handleAllCategoriesBtnClick() {
   const buttons = document.querySelectorAll('.all-categories-button');
   buttons.forEach(button => {
     button.addEventListener('click', () => {

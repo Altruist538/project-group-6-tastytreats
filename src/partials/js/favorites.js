@@ -23,7 +23,6 @@ function onFavoritesReload() {
 
   const allCatBtn = `<button class="button-fav all-btn onActive" name="all"></button>`;
 
-
   const data = JSON.parse(localStorage.getItem('favorites'));
 
   recipes.innerHTML = '';
@@ -42,9 +41,7 @@ function generateStorageList(pageSet = 1) {
   const storage = localStorage.getItem('favorites');
   const data = JSON.parse(storage);
 
-
   console.log('DATA', data);
-
 
   allBtn.style.display = 'none';
 
@@ -125,7 +122,6 @@ function filterByCategory(evt) {
   const objData = groupObjects(categoryRecipes, perPage);
 
   const listMarkup = objData[pageSet].reduce(
-
     (markup, recipe) => markup + getRecipeMarkup(recipe),
 
     ''
@@ -168,7 +164,5 @@ function checkCategory(target) {
   if (!storageItems.length) allBtn.style.display = 'none';
   else allBtn.style.display = 'block';
 }
-
-
 
 document.addEventListener('DOMContentLoaded', onFavoritesReload);
