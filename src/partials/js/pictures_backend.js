@@ -155,4 +155,5 @@ document.addEventListener('DOMContentLoaded', () => {
   galleryEl && fetchImages();
 });
 
-galleryEl && galleryEl.addEventListener('click', toggleFavorite);
+// galleryEl &&
+galleryEl.addEventListener('click', toggleFavorite);
