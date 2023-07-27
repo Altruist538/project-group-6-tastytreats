@@ -33,6 +33,7 @@ export const getRecipeMarkup = ({
   category,
   description,
   area,
+  rating,
 }) => {
   return `<div class="gallery__link">
       <img src="${preview}" class="gallery-img" alt="${title}" loading="lazy" />
@@ -56,7 +57,7 @@ export const getRecipeMarkup = ({
         </button>
         <div class="wrapper-bottom">
         <div class="rating-wrapper">
-        <p class="rating">4.5</p>
+        <p class="rating">${rating.toFixed(1)}</p>
         </div>
         <div class="card-btn-wrapper">
           <button class="card-btn">See recipe</button>
