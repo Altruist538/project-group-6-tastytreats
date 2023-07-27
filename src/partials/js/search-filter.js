@@ -1,6 +1,7 @@
 import debounce from 'lodash.debounce';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchImages, renderImgCard } from './pictures_backend';
-import { getRecipesByCategory } from './all-categories';
+import { handleAllCategoriesBtnClick } from './all-categories';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
@@ -43,11 +44,11 @@ wordSearchEl.addEventListener('blur', () => {
 });
 
 // Запит на бек по данним з search
-
-wordSearchEl.addEventListener('input', searchRecipesByQuery);
+wordSearchEl.addEventListener('input', debounce(searchRecipesByQuery), 300);
 
 async function searchRecipesByQuery() {
   const searchQuery = wordSearchEl.value.trim();
+
   let cardsPperPage = 0;
   let pageCounter = 1;
 
@@ -68,6 +69,12 @@ async function searchRecipesByQuery() {
         limit: cardsPperPage,
       },
     });
+
+    if (!response.data.results.includes(searchQuery)) {
+      Notify.warning(
+        'Sorry, we could not find any relevant receipes. Try another variant!'
+      );
+    }
 
     galleryEl.innerHTML = '';
 
