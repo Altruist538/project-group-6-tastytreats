@@ -5,4 +5,6 @@ import './partials/js/slick.min';
 import './partials/js/order-now';
 import './partials/js/popular-recipes';
 import './partials/js/favorites';
+import './partials/js/rating'
 import './partials/js/pictures_backend';
+
