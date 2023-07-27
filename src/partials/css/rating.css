@@ -1,34 +1,36 @@
 /* контейнер для рейтингу і кнопки "See recipe" */
 .block-raiting {
-    display: flex;
-    align-items: center;
-    width: 218px;
-    background-color: gray;
-    gap: 9px;
+  display: flex;
+  align-items: center;
+  width: 218px;
+  background-color: gray;
+  gap: 9px;
 }
 
 /* контейнер зірок-svg */
 .rating-container {
-    display: flex;
-    /* align-items: center; */
-    /* margin:auto; */
+  display: flex;
+  /* align-items: center; */
+  /* margin:auto; */
 }
 
 /* стиль cвітло-сіра зірка */
 .star {
-    fill: #f8f8f8;
+  fill: rgba(248, 248, 248, 0.1);
+  width: 16px;
+  stroke: none;
 }
 
 /* стиль жовта зірка */
 .filled {
-    fill: #eea10c;
+  fill: #eea10c;
 }
 
 /* цифра-рейтинг попереду від зірок*/
 .rating {
-    color: #f8f8f8;
+  color: #f8f8f8;
 }
 
-.rating-wrapper{
-    display: flex;
+.rating-wrapper {
+  display: flex;
 }

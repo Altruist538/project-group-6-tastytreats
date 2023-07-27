@@ -4,10 +4,12 @@ const modalClose = document.querySelector('.close-modal-order');
 const modal = document.querySelector('.modal-order');
 const modalForm = document.querySelector('.modal-order-form');
 
-modalOpen.addEventListener('click', openModalOrder);
-modalClose.addEventListener('click', closeModalOrder);
-backdrop.addEventListener('click', backdropShow);
-modalForm.addEventListener('submit', sendOrderForm);
+if (modalOpen) {
+  modalOpen.addEventListener('click', openModalOrder);
+  modalClose.addEventListener('click', closeModalOrder);
+  backdrop.addEventListener('click', backdropShow);
+  modalForm.addEventListener('submit', sendOrderForm);
+}
 
 function sendOrderForm(event) {
   event.preventDefault();
