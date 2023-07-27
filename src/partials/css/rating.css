@@ -1,7 +1,3 @@
-.rating-wrapper{
-    display: flex;
-}
-
 /* контейнер для рейтингу і кнопки "See recipe" */
 .block-raiting {
     display: flex;
@@ -24,9 +20,15 @@
 }
 
 /* стиль жовта зірка */
-.star.filled {
+.filled {
     fill: #eea10c;
 }
-.rating{
-    margin-right: 4px;
+
+/* цифра-рейтинг попереду від зірок*/
+.rating {
+    color: #f8f8f8;
+}
+
+.rating-wrapper{
+    display: flex;
 }
