@@ -60,7 +60,7 @@
   outline-color: transparent;
 }
 
-.categories-list-element.is-active {
+.is-active {
   color: #9bb537;
 }
 

@@ -1,5 +1,3 @@
-
-
 (() => {
   const mobileMenu = document.querySelector('.js-menu-container');
   const openMenuBtn = document.querySelector('.js-open-menu-hed');
@@ -14,7 +12,8 @@
     const scrollLockMethod = !isMenuOpen
       ? 'disableBodyScroll'
       : 'enableBodyScroll';
-    bodyScrollLock[scrollLockMethod](document.body);
+    // TODO bodyScrollLock is not defined
+    //bodyScrollLock[scrollLockMethod](document.body);
   };
 
   openMenuBtn.addEventListener('click', toggleMenu);
@@ -25,6 +24,7 @@
     if (!e.matches) return;
     mobileMenu.classList.remove('is-open-h');
     openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
+    // TODO bodyScrollLock is not defined
+    //bodyScrollLock.enableBodyScroll(document.body);
   });
 })();

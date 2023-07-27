@@ -1,14 +1,48 @@
 import { getRecipeMarkup } from './pictures_backend';
 
+const favoritesSection = document.querySelector('#favorites_section');
 const notFound = document.querySelector('.not-found-wrapper');
 const recipes = document.querySelector('.favorites-list');
 const categoriesEl = document.querySelector('.btn-wrapper');
 const allBtn = document.querySelector('.all-btn');
-const heroImg = document.querySelector('.img-hero');
+const dishImg = document.querySelector('.dish-img');
 
 let currentBtn = '';
+let hasStoredRecipes = false;
 
 const categoryRecipes = [];
+
+function resizeImg() {
+  if (window.innerWidth < 768 && !hasStoredRecipes) {
+    dishImg.classList.add('is-hidden');
+  } else {
+    dishImg.classList.remove('is-hidden');
+  }
+}
+
+if (favoritesSection) {
+  window.addEventListener('resize', resizeImg);
+  resizeImg();
+  categoriesEl.addEventListener('click', filterByCategory);
+  onFavoritesReload();
+  recipes.addEventListener('click', e => {
+    toggleFavorite(e);
+    onFavoritesReload();
+  });
+  document.addEventListener('DOMContentLoaded', generateFavoritesList);
+}
+
+function calcPages() {
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 768) {
+    return 9;
+  }
+
+  if (screenWidth >= 768) {
+    return 12;
+  }
+}
 
 function groupObjects(array, groupSize) {
   const result = {};
@@ -22,11 +56,10 @@ function groupObjects(array, groupSize) {
 function onFavoritesReload() {
   const categoryMarkup = generateCategoryList();
 
-  const allCatBtn = `<button class="button-fav all-btn onActive" name="all"></button>`;
+  const allCatBtn = `<button class="btn-category all-btn is-active" name="all">All categories</button>`;
 
   const data = JSON.parse(localStorage.getItem('favorites'));
 
-  recipes.innerHTML = '';
   categoriesEl.innerHTML = '';
 
   if (data && data.length) {
@@ -38,34 +71,24 @@ function onFavoritesReload() {
   generateStorageList();
 }
 
-function generateStorageList(pageSet = 1) {
-  const storage = localStorage.getItem('favorites');
-  const data = JSON.parse(storage);
+function generateStorageList() {
+  const favorites = getFavoritesFromLocalStorage();
 
-  console.log('DATA', data);
-
-  allBtn.style.display = 'none';
-
-  if (data && data.length) {
-    allBtn.style.display = 'block';
-
-    const perPage = calcPages();
-    const objData = groupObjects(data, perPage);
-
-    const listMarkup = objData[pageSet].reduce(
-      (markup, recipe) => markup + getRecipeMarkup(recipe),
+  if (favorites.length) {
+    const listMarkup = favorites.reduce(
+      (markup, recipe) => markup + getRecipeMarkup(recipe, favorites),
       ''
     );
 
-    categoriesEl.innerHTML = listMarkup;
+    recipes.innerHTML = listMarkup;
     notFound.classList.add('is-hidden');
+    hasStoredRecipes = true;
+    resizeImg();
   } else {
     notFound.classList.remove('is-hidden');
     allBtn.classList.add('is-hidden');
-
-    if (window.innerWidth < 768) {
-      heroImg.classList.add('is-hidden');
-    }
+    hasStoredRecipes = false;
+    resizeImg();
   }
 }
 
@@ -88,80 +111,85 @@ function renderCategory(category) {
   return `<button class="btn-category">${category}</button>`;
 }
 
-categoriesEl.addEventListener('click', filterByCategory);
+function getFavoritesFromLocalStorage() {
+  return JSON.parse(localStorage.getItem('favorites') || '[]');
+}
+
+function generateFavoritesList() {
+  const favorites = getFavoritesFromLocalStorage();
+  const favoritesMarkup = favorites
+    .map(recipe => getRecipeMarkup(recipe, favorites))
+    .join('');
+
+  recipes.innerHTML = favoritesMarkup;
+
+  if (favorites.length === 0) {
+    notFound.classList.remove('is-hidden');
+  } else {
+    notFound.classList.add('is-hidden');
+  }
+}
 
 function filterByCategory(evt) {
-  if (evt.target.classList.contains('onActive')) return;
+  if (evt.target.classList.contains('is-active')) return;
 
-  let data = [];
-  let categoryRecipes;
-  recipes.innerHTML = '';
+  // let data = [];
+  // let categoryRecipes;
 
-  if (evt !== Number(evt) && evt.target.nodeName === 'BUTTON') {
-    setActiveClass(evt);
-    if (evt.target.name === 'all') return generateStorageList();
-    else currentBtn = evt.target.textContent;
-  }
+  // const storage = localStorage.getItem('favorites');
+  // data = JSON.parse(storage);
 
-  const storage = localStorage.getItem('favorites');
-  data = JSON.parse(storage);
+  // if (!data.length) {
+  //   return;
+  // }
 
-  if (!data.length) {
-    categoriesEl.style.display = 'none';
+  // categoryRecipes = [...data.filter(recipe => recipe.category === currentBtn)];
 
-    return;
-  }
+  // let pageSet = 1;
 
-  categoryRecipes = [...data.filter(recipe => recipe.category === currentBtn)];
+  // if (Number(evt) === evt) pageSet = evt;
 
-  let pageSet = 1;
+  // const perPage = calcPages();
+  // const objData = groupObjects(categoryRecipes, perPage);
 
-  if (Number(evt) === evt) pageSet = evt;
+  Array.from(categoriesEl.children).forEach(el =>
+    el.classList.remove('is-active')
+  );
+  evt.target.classList.add('is-active');
 
-  const perPage = calcPages();
-  const objData = groupObjects(categoryRecipes, perPage);
+  const favorites = getFavoritesFromLocalStorage();
 
-  const listMarkup = objData[pageSet].reduce(
-    (markup, recipe) => markup + getRecipeMarkup(recipe),
+  const categoryRecipes = evt.target.classList.contains('all-btn')
+    ? favorites
+    : [
+        ...favorites.filter(
+          recipe => recipe.category === evt.target.textContent
+        ),
+      ];
+
+  const listMarkup = categoryRecipes.reduce(
+    (markup, recipe) => markup + getRecipeMarkup(recipe, favorites),
     ''
   );
 
   recipes.innerHTML = listMarkup;
 }
 
-function setActiveClass({ target }) {
-  const btn = document.querySelector('.onActive');
-  if (!btn) return allBtn.classList.add('onActive');
-  btn.classList.remove('onActive');
-  target.classList.add('onActive');
-}
+export function toggleFavorite(e) {
+  if (e.target.dataset.heart) {
+    let favorites = getFavoritesFromLocalStorage();
+    console.log('favorites', favorites);
+    if (e.target.dataset.heart === 'true') {
+      e.target.classList.remove('is-active');
+      e.target.dataset.heart = false;
 
-function removeFavoriteRecipe(currentBtn) {
-  const recipeInfo = JSON.parse(currentBtn.dataset.info);
+      favorites = favorites.filter(({ _id }) => _id !== e.target.dataset.id);
+    } else {
+      e.target.classList.add('is-active');
+      e.target.dataset.heart = true;
+      favorites.push(JSON.parse(decodeURIComponent(e.target.dataset.recipe)));
+    }
 
-  const storage = JSON.parse(localStorage.getItem('favorites'));
-  localStorage.setItem(
-    'favorites',
-    JSON.stringify([...storage.filter(el => el.id !== recipeInfo.id)])
-  );
-  onFavoritesReload();
-}
-
-function checkCategory(target) {
-  const currentRec = target.closest('div.recipe-item').dataset.category;
-  const storageItems = JSON.parse(localStorage.getItem('favorites'));
-  const isCategoryLocal = storageItems.find(el => el.category === currentRec);
-  const isCategoryRendered = [...categoriesEl.children].find(
-    el => el.textContent === currentRec
-  );
-  if (!isCategoryLocal && isCategoryRendered) {
-    isCategoryRendered.remove();
-  } else if (isCategoryLocal && !isCategoryRendered) {
-    categoriesEl.insertAdjacentHTML('beforeend', renderCategory(currentRec));
+    localStorage.setItem('favorites', JSON.stringify(favorites));
   }
-
-  if (!storageItems.length) allBtn.style.display = 'none';
-  else allBtn.style.display = 'block';
 }
-
-document.addEventListener('DOMContentLoaded', onFavoritesReload);
