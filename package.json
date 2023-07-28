@@ -22,6 +22,7 @@
     "jquery": "^3.7.0",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6",
+    "pagination": "^0.4.6",
     "smooth-scrollbar": "^8.8.4"
   },
   "devDependencies": {
