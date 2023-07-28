@@ -61,7 +61,18 @@ svg {
 .container {
   margin: 0 auto;
 }
-
+.filter-container {
+  height: 100px;
+}
+.popular-container {
+  gap: 16px;
+}
+.all-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
 @media screen and (max-width: 767px) {
   .container {
     min-width: 375px;
