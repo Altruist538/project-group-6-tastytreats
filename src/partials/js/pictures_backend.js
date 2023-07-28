@@ -152,7 +152,8 @@ export function renderImgCard(response) {
 }
 // Вызываем функцию fetchImages() при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-  galleryEl && fetchImages();
+  // galleryEl &&
+  fetchImages();
 });
 
 // galleryEl &&
