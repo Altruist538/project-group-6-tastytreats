@@ -49,6 +49,7 @@
 }
 .filter-form {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 .reset-filter {
