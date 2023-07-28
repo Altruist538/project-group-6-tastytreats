@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { toggleFavorite } from './favorites';
 const galleryEl = document.querySelector('.gallery');
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
 const windowWidth = document.documentElement.clientWidth;
 let perPage = 0;
 if (windowWidth < 768) {
