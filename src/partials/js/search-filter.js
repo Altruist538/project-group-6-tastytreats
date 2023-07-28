@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchImages, renderImgCard } from './pictures_backend';
-import { handleAllCategoriesBtnClick } from './all-categories';
+import axios from 'axios';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
