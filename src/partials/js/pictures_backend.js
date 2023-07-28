@@ -13,7 +13,7 @@ if (windowWidth < 768) {
 }
 let pageCounter = 1;
 export function getRecipeMarkup(recipe, favorites = []) {
-  const { _id, preview, title, category, description, area, rating } = recipe;
+  const { _id, thumb, title, category, description, area, rating } = recipe;
   const isFavorite = favorites.some(fav => fav._id === _id);
 
   let s1;
@@ -56,7 +56,7 @@ export function getRecipeMarkup(recipe, favorites = []) {
   }
 
   return `<div class="gallery__link">
-      <img src="${preview}" class="gallery-img" alt="${title}" loading="lazy" />
+      <img src="${thumb}" class="gallery-img" alt="${title}" loading="lazy" />
       <div class="info">
         <p class="info-item-title">
           <b>${title}</b>
@@ -135,6 +135,7 @@ export async function fetchImages() {
         limit: perPage,
       },
     });
+    console.log(response.data.results);
     renderImgCard(response.data.results);
   } catch (error) {
     console.error(error);
