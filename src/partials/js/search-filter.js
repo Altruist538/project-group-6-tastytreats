@@ -71,15 +71,16 @@ async function searchRecipesByQuery() {
       },
     });
 
-    if (!response.data.results.includes(searchQuery)) {
-      Notify.warning(
-        'Sorry, we could not find any relevant receipes. Try another variant!'
-      );
-    }
-
     galleryEl.innerHTML = '';
-
     renderImgCard(response.data.results);
+
+    if (response.data.results.length === 0) {
+      Notify.warning(
+        'Sorry, we could not find any relevant receipes. Please, try again!'
+      );
+      fetchImages();
+    }
+    // if () { }
   } catch (error) {
     console.log(`Failed to fetch images: ${error}`);
   }
