@@ -1,41 +1,27 @@
-import axios from 'axios';
+fetch('https://tasty-treats-backend.p.goit.global/api/areas')
+  .then(response => response.json())
+  .then(data => {
+    const areaFilterEl = document.querySelector('.inp-area-form');
 
-const BASE_URL =
-  'https://tasty-treats-backend.p.goit.global/api/recipes?limit=500';
-const areaFilterEl = document.querySelector('.inp-area-form');
-
-function fetchAreaFilter() {
-  fetch(BASE_URL)
-    .then(response => response.json())
-    .then(data => {
-      const areaFilterEl = document.querySelector('.inp-area-form');
-      data.results.forEach(category => {
-        const areaOptionElement = document.createElement('option');
-        areaOptionElement.value = category.area;
-        areaOptionElement.textContent = category.area;
-        areaFilterEl.appendChild(areaOptionElement);
-      });
-    })
-    .catch(error => {
-      console.error('Ошибка:', error);
+    data.forEach(area => {
+      const areaOptionEl = document.createElement('option');
+      areaOptionEl.value = area.name;
+      areaOptionEl.textContent = area.name;
+      areaFilterEl.appendChild(areaOptionEl);
     });
-}
-fetchAreaFilter();
+  })
+  .catch(error => console.log('Ошибка при запросе:', error));
 
-// function fetchAreaFilter() {
-//   fetch(BASE_URL)
-//     .then(response => response.json())
-//     .then(data => {
-//       const areaFilterEl = document.querySelector('.inp-area-form');
-//       data.results.forEach(category => {
-//         const areaOptionElement = document.createElement('option');
-//         areaOptionElement.value = category.area;
-//         areaOptionElement.textContent = category.area;
-//         areaFilterEl.appendChild(areaOptionElement);
-//       });
-//     })
-//     .catch(error => {
-//       console.error('Ошибка:', error);
-//     });
-// }
-// fetchAreaFilter();
+fetch('https://tasty-treats-backend.p.goit.global/api/ingredients')
+  .then(response => response.json())
+  .then(data => {
+    const ingredientsFilterEl = document.querySelector('.inp-ingredients-form');
+
+    data.forEach(ingredients => {
+      const ingredientsOptionEl = document.createElement('option');
+      ingredientsOptionEl.value = ingredients.name;
+      ingredientsOptionEl.textContent = ingredients.name;
+      ingredientsFilterEl.appendChild(ingredientsOptionEl);
+    });
+  })
+  .catch(error => console.log('Ошибка при запросе:', error));
