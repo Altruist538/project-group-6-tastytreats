@@ -50,6 +50,7 @@
 .filter-form {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 .reset-filter {
