@@ -46,3 +46,4 @@ function renderCart(recipesArr) {
 }
 
 getRecipies().then(renderCart);
+
