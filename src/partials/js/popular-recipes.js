@@ -45,4 +45,6 @@ function renderCart(recipesArr) {
   recipiesEl.insertAdjacentHTML('beforeend', markUp);
 }
 
-getRecipies().then(renderCart);
+if (recipiesEl) {
+  getRecipies().then(renderCart);
+}
