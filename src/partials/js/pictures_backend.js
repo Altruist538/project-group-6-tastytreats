@@ -20,7 +20,6 @@ export async function fetchImages() {
         limit: perPage,
       },
     });
-
     renderImgCard(response.data.results);
   } catch (error) {
     console.log(`Failed to fetch images: ${error}`);
