@@ -15,8 +15,20 @@ const resetFilterBtnEl = document.querySelector('.svg-modal-reset-btn');
 
 const DEBOUNCE_DELAY = 300;
 
-// Очищення фільтрів через reset btn
-resetFilterBtnEl.addEventListener('click', handleOnResetFilterBtnClick);
+if (wordSearchEl) {
+  // Очищення фільтрів через reset btn
+  resetFilterBtnEl.addEventListener('click', handleOnResetFilterBtnClick);
+  // Зміна кольору іконки
+  wordSearchEl.addEventListener('focus', () => {
+    searchIcon.classList.add('is-active');
+  });
+  wordSearchEl.addEventListener('blur', () => {
+    searchIcon.classList.remove('is-active');
+  });
+
+  // Запит на бек по данним з search
+  wordSearchEl.addEventListener('input', debounce(searchRecipesByQuery), 300);
+}
 
 function handleOnResetFilterBtnClick() {
   const buttons = document.querySelectorAll('.all-categories-button');
@@ -34,17 +46,6 @@ function handleOnResetFilterBtnClick() {
   galleryEl.innerHTML = '';
   fetchImages();
 }
-
-// Зміна кольору іконки
-wordSearchEl.addEventListener('focus', () => {
-  searchIcon.classList.add('is-active');
-});
-wordSearchEl.addEventListener('blur', () => {
-  searchIcon.classList.remove('is-active');
-});
-
-// Запит на бек по данним з search
-wordSearchEl.addEventListener('input', debounce(searchRecipesByQuery), 300);
 
 async function searchRecipesByQuery() {
   const searchQuery = wordSearchEl.value.trim();

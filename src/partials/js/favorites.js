@@ -178,7 +178,6 @@ function filterByCategory(evt) {
 export function toggleFavorite(e) {
   if (e.target.dataset.heart) {
     let favorites = getFavoritesFromLocalStorage();
-    console.log('favorites', favorites);
     if (e.target.dataset.heart === 'true') {
       e.target.classList.remove('is-active');
       e.target.dataset.heart = false;

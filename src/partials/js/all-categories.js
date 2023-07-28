@@ -8,23 +8,26 @@ const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const btnEl = document.querySelector('.js-all-categories-button');
 const categoriesList = document.querySelector('.categories-list');
 
-fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    const categoriesList = document.querySelector('.categories-list');
+if (categoriesList) {
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const categoriesList = document.querySelector('.categories-list');
 
-    data.forEach(category => {
-      const button = document.createElement('button');
-      button.textContent = category.name;
-      button.classList.add('categories-list-element');
-      categoriesList.appendChild(button);
+      data.forEach(category => {
+        const button = document.createElement('button');
+        button.textContent = category.name;
+        button.classList.add('categories-list-element');
+        categoriesList.appendChild(button);
+      });
+    })
+    .catch(error => {
+      console.error(error);
     });
-  })
-  .catch(error => {
-    console.error(error);
-  });
 
-categoriesList.addEventListener('click', getRecipesByCategory);
+  categoriesList.addEventListener('click', getRecipesByCategory);
+  btnEl.addEventListener('click', handleAllCategoriesBtnClick);
+}
 
 export async function getRecipesByCategory(event) {
   const buttons = document.querySelectorAll('.button');
@@ -67,8 +70,6 @@ export async function getRecipesByCategory(event) {
     console.log(`Failed to fetch images: ${error}`);
   }
 }
-
-btnEl.addEventListener('click', handleAllCategoriesBtnClick);
 
 export function handleAllCategoriesBtnClick() {
   const buttons = document.querySelectorAll('.all-categories-button');
