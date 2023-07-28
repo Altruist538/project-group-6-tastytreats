@@ -1,10 +1,10 @@
 
-import SmoothScrollbar from 'smooth-scrollbar';
+// import SmoothScrollbar from 'smooth-scrollbar';
 import Notiflix from 'notiflix';
 import axios from 'axios';
 
 const url = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
-const id = "6467fb9d3d8125271a59219e";
+// const id = "6467fb9d3d8125271a59219e";
 const refs = {
   closeModalBtn: document.querySelector('.close-modal'),
   backdropModal: document.querySelector('.backdrop-recipes'),
@@ -28,6 +28,7 @@ export function OpenModal(currentBtn) {
   refs.modalRecipes.classList.add('is-hidden-modal');
 
   refs.rateForm.dataset.id = currentBtn.dataset.id;
+  console.log(refs.rateForm.dataset.id);
   genereteRecipe(currentBtn.dataset.id);
   ToggleScroll();
 
