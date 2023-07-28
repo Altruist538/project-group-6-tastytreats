@@ -59,4 +59,4 @@ async function data() {
   sliderMarkUp(data);
 }
 
-data();
+slider && data();

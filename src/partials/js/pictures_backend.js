@@ -12,21 +12,7 @@ if (windowWidth < 768) {
   perPage = 9;
 }
 let pageCounter = 1;
-export async function fetchImages() {
-  try {
-    let response = await axios.get(BASE_URL, {
-      params: {
-        page: pageCounter,
-        limit: perPage,
-      },
-    });
-    renderImgCard(response.data.results);
-  } catch (error) {
-    console.log(`Failed to fetch images: ${error}`);
-  }
-}
-
-export const getRecipeMarkup = (recipe, favorites = []) => {
+export function getRecipeMarkup(recipe, favorites = []) {
   const { _id, preview, title, category, description, area, rating } = recipe;
   const isFavorite = favorites.some(fav => fav._id === _id);
 
@@ -139,7 +125,22 @@ export const getRecipeMarkup = (recipe, favorites = []) => {
         </div>
       </div>
     </div>`;
-};
+}
+
+export async function fetchImages() {
+  try {
+    let response = await axios.get(BASE_URL, {
+      params: {
+        page: pageCounter,
+        limit: perPage,
+      },
+    });
+    renderImgCard(response.data.results);
+  } catch (error) {
+    console.error(error);
+    console.log(`Failed to fetch images: ${error}`);
+  }
+}
 
 export function renderImgCard(response) {
   const storage = localStorage.getItem('favorites');
