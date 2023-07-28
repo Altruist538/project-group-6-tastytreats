@@ -20,7 +20,7 @@ export async function fetchImages() {
         limit: perPage,
       },
     });
-
+    console.log(response.data.results);
     renderImgCard(response.data.results);
   } catch (error) {
     console.log(`Failed to fetch images: ${error}`);
@@ -152,9 +152,7 @@ export function renderImgCard(response) {
 }
 // Вызываем функцию fetchImages() при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-  // galleryEl &&
-  fetchImages();
+  galleryEl && fetchImages();
 });
 
-// galleryEl &&
-galleryEl.addEventListener('click', toggleFavorite);
+galleryEl && galleryEl.addEventListener('click', toggleFavorite);
