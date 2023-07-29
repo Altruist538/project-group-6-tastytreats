@@ -3,8 +3,10 @@ const modalOpen = document.querySelector('.hero-btn');
 const modalClose = document.querySelector('.close-modal-order');
 const modal = document.querySelector('.modal-order');
 const modalForm = document.querySelector('.modal-order-form');
+const shoppingLink = document.querySelector('.header-menu-contect');
 
 if (modalOpen) {
+  shoppingLink.addEventListener('click', openModalOrder);
   modalOpen.addEventListener('click', openModalOrder);
   modalClose.addEventListener('click', closeModalOrder);
   backdrop.addEventListener('click', backdropShow);
