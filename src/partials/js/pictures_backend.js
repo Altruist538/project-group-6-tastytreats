@@ -151,8 +151,8 @@ export function renderImgCard(response) {
   galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
 }
 // Вызываем функцию fetchImages() при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-  galleryEl && fetchImages();
-});
-
+// document.addEventListener('DOMContentLoaded', () => {
+//   galleryEl && fetchImages();
+// });
+fetchImages();
 galleryEl && galleryEl.addEventListener('click', toggleFavorite);
