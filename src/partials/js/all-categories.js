@@ -2,8 +2,8 @@ import axios from 'axios';
 import { renderImgCard, fetchImages } from './pictures_backend';
 const galleryEl = document.querySelector('.gallery');
 
-const url = 'https://tasty-treats-backend.p.goit.global/api/categories/';
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
+const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
 const btnEl = document.querySelector('.js-all-categories-button');
 const categoriesList = document.querySelector('.categories-list');
