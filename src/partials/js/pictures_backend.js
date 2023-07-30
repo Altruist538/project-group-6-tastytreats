@@ -155,4 +155,5 @@ export function renderImgCard(response) {
 //   galleryEl && fetchImages();
 // });
 fetchImages();
-galleryEl && galleryEl.addEventListener('click', toggleFavorite);
+// galleryEl &&
+// galleryEl.addEventListener('click', toggleFavorite);
