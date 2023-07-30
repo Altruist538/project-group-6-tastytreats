@@ -1,6 +1,6 @@
-.all-categories-section {
+/* .all-categories-section {
   width: 326px;
-}
+} */
 
 .all-categories-section-title {
   display: none;
@@ -28,7 +28,7 @@
 }
 
 .categories-list {
-  width: 326px;
+  /* width: 326px; */
   height: 198px;
   overflow: auto;
 }
@@ -79,9 +79,9 @@
 }
 
 @media screen and (max-width: 767px) {
-  .all-categories-section {
-    margin: 0 auto 40px auto;
-  }
+  /* .all-categories-section {
+  
+  } */
 }
 
 @media screen and (min-width: 768px) {

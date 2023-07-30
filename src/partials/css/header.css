@@ -39,6 +39,11 @@
   padding: 0;
   /* margin-right: 20px; */
 }
+.header-contact-burger{
+      display: flex;
+        align-items: center;
+        gap: 14px;
+}
 
 @media screen and (min-width: 768px) {
   .header-nav {
@@ -61,7 +66,7 @@
   font-size: 1.1rem;
   /* padding-right: 217px; */
   text-decoration: none;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .navig-logoitem {
