@@ -37,7 +37,7 @@
   border: none;
   background: none;
   padding: 0;
-  /* margin-right: 20px; */
+  margin-right: 20px;
 }
 
 @media screen and (min-width: 768px) {
@@ -59,7 +59,7 @@
   font-weight: 600;
   color: var(--primaty-black-color);
   font-size: 1.1rem;
-  /* padding-right: 217px; */
+  padding-right: 217px;
   text-decoration: none;
   margin-left: 20px;
 }
