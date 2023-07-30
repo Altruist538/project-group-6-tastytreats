@@ -1,259 +1,208 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TastyTreats</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/src/partials/css/index.css" />
-    <link rel="stylesheet" href="/src/partials/css/filter.css" />
-  </head>
 
-  <body>
-    <!-- header -->
-    <header class="header">
-      <div class="container header-container">
-        <div class="header-nav">
-          <ul style="list-style: none" class="header-menu">
-            <li><a class="link current" href="./index.html">Home</a></li>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TastyTreats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/partials/css/index.css" />
+  <link rel="stylesheet" href="/src/partials/css/filter.css" />
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header">
+    <div class="container header-container">
+      <div class="header-nav">
+        <ul style="list-style: none" class="header-menu">
+          <li><a class="link current" href="./index.html">Home</a></li>
+          <li><a class="link" href="./favorites.html">Favorites</a></li>
+        </ul>
+        <a href="./index.html" class="navig-logo"><span class="navig-logoitem">tasty</span>treats.</a>
+      </div>
+      <div class="header-contact">
+        <svg class="header-menu-contect" width="24" height="24">
+          <use href="./partials/images/sprite.svg#icon-shopping-cart"></use>
+        </svg>
+        <svg class="header-menu-switch" width="46" height="20">
+          <use href="./partials/images/sprite.svg#icon-switch"></use>
+        </svg>
+      </div>
+
+      <button class="header-burger js-open-menu-hed" type="button">
+        <svg width="32" height="32">
+          <use href="./partials/images/sprite.svg#icon-burger"></use>
+        </svg>
+      </button>
+
+      <div class="mobile-menu-head js-menu-container">
+        <button class="model-close-js-hed js-close-menu-hed" type="button">
+          <svg class="close">
+            <use href="./partials/images/sprite.svg#icon-x"></use>
+          </svg>
+        </button>
+        <div class="header-nav-modal">
+          <ul class="contact-menu-nav">
+            <li><a class="link" href="./index.html">Home</a></li>
             <li><a class="link" href="./favorites.html">Favorites</a></li>
           </ul>
-          <a href="./index.html" class="navig-logo"
-            ><span class="navig-logoitem">tasty</span>treats.</a
-          >
-        </div>
-        <div class="header-contact">
-          <svg class="header-menu-contect" width="24" height="24">
-            <use href="./partials/images/sprite.svg#icon-shopping-cart"></use>
-          </svg>
-          <svg class="header-menu-switch" width="46" height="20">
+          <svg class="model-menu-switch" width="46" height="20">
             <use href="./partials/images/sprite.svg#icon-switch"></use>
           </svg>
         </div>
-
-        <button class="header-burger js-open-menu-hed" type="button">
-          <svg width="32" height="32">
-            <use href="./partials/images/sprite.svg#icon-burger"></use>
+      </div>
+    </div>
+  </header>
+  <main>
+    <!-- header /-->
+    <!-- hero -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="text-container">
+          <h1 class="hero-title">
+            Learn to Cook
+            <span class="hero-title-special"> Tasty Treats'</span>
+            Customizable Masterclass
+          </h1>
+          <p class="hero-text">
+            TastyTreats - Customize Your Meal with Ingredient Options and
+            Step-by-Step Video Guides.
+          </p>
+          <button type="button" class="hero-btn">Order now</button>
+        </div>
+        <div class="hero-slider">
+          <div class="slider"></div>
+        </div>
+      </div>
+    </section>
+    <div class="backdrop-order">
+      <div class="modal-order">
+        <button type="button" class="close-modal-order">
+          <svg width="20" height="20">
+            <use href="./partials/images/sprite.svg#icon-x"></use>
           </svg>
         </button>
-
-        <div class="mobile-menu-head js-menu-container">
-          <button class="model-close-js-hed js-close-menu-hed" type="button">
-            <svg class="close">
-              <use href="./partials/images/sprite.svg#icon-x"></use>
-            </svg>
-          </button>
-          <div class="header-nav-modal">
-            <ul class="contact-menu-nav">
-              <li><a class="link" href="./index.html">Home</a></li>
-              <li><a class="link" href="./favorites.html">Favorites</a></li>
-            </ul>
-            <svg class="model-menu-switch" width="46" height="20">
-              <use href="./partials/images/sprite.svg#icon-switch"></use>
-            </svg>
-          </div>
-        </div>
+        <form action="#" class="modal-order-form">
+          <p class="name-modal">order now</p>
+          <label class="label-form"><span class="label-text">Name</span><input type="text" name="name" required
+              placeholder="Your Name" pattern="[A-Za-z]{1,32}" class="order-input" />
+          </label>
+          <label class="label-form"><span class="label-text">Phone number</span><input type="tel" name="tel" required
+              pattern="[0-9]{10}" placeholder="Your phone number" class="order-input" />
+          </label>
+          <label class="label-form"><span class="label-text">Email</span>
+            <input type="email" name="email" required placeholder="Your email" pattern="[^@\s]+@[^@\s]+"
+              class="order-input" /></label>
+          <label class="label-form label-textarea"><span class="label-text">Comment</span><textarea type="text"
+              name="comment" placeholder="Please leave your comment" rows="4" class="order-textarea"></textarea>
+          </label>
+          <button type="submit" class="btn-submit">Send</button>
+        </form>
       </div>
-    </header>
-    <main>
-      <!-- header /-->
-      <!-- hero -->
-      <section class="hero-section">
-        <div class="container">
-          <div class="text-container">
-            <h1 class="hero-title">
-              Learn to Cook
-              <span class="hero-title-special"> Tasty Treats'</span>
-              Customizable Masterclass
-            </h1>
-            <p class="hero-text">
-              TastyTreats - Customize Your Meal with Ingredient Options and
-              Step-by-Step Video Guides.
-            </p>
-            <button type="button" class="hero-btn">Order now</button>
-          </div>
-          <div class="hero-slider">
-            <div class="slider"></div>
-          </div>
-        </div>
-      </section>
-      <div class="backdrop-order">
-        <div class="modal-order">
-          <button type="button" class="close-modal-order">
-            <svg width="20" height="20">
-              <use href="./partials/images/sprite.svg#icon-x"></use>
-            </svg>
-          </button>
-          <form action="#" class="modal-order-form">
-            <p class="name-modal">order now</p>
-            <label class="label-form"
-              ><span class="label-text">Name</span
-              ><input
-                type="text"
-                name="name"
-                required
-                placeholder="Your Name"
-                pattern="[A-Za-z]{1,32}"
-                class="order-input"
-              />
-            </label>
-            <label class="label-form"
-              ><span class="label-text">Phone number</span
-              ><input
-                type="tel"
-                name="tel"
-                required
-                pattern="[0-9]{10}"
-                placeholder="Your phone number"
-                class="order-input"
-              />
-            </label>
-            <label class="label-form"
-              ><span class="label-text">Email</span>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="Your email"
-                pattern="[^@\s]+@[^@\s]+"
-                class="order-input"
-            /></label>
-            <label class="label-form label-textarea"
-              ><span class="label-text">Comment</span
-              ><textarea
-                type="text"
-                name="comment"
-                placeholder="Please leave your comment"
-                rows="4"
-                class="order-textarea"
-              ></textarea>
-            </label>
-            <button type="submit" class="btn-submit">Send</button>
-          </form>
-        </div>
-      </div>
+    </div>
 
-      <!-- hero /-->
-      <section class="all-section">
-        <div class="all-popular">
-          <!-- all-categories-->
-          <div class="all-categories-section">
-            <h2 class="all-categories-section-title">Categories</h2>
-            <button
-              type="button"
-              class="all-categories-button js-all-categories-button"
-            >
-              All categories
-            </button>
-            <div class="categories-list"></div>
-          </div>
-          <!-- all-categories/-->
-          <!-- popular-->
-          <div class="popular-container">
-            <h2 class="popular-main-title">POPULAR RECIPIES</h2>
-            <ul class="popular-list"></ul>
-          </div>
-          <!-- popular/-->
+    <!-- hero /-->
+    <section class="all-section">
+      <div class="all-popular">
+        <!-- all-categories-->
+        <div class="all-categories-section">
+          <h2 class="all-categories-section-title">Categories</h2>
+          <button type="button" class="all-categories-button js-all-categories-button">
+            All categories
+          </button>
+          <div class="categories-list"></div>
         </div>
-        <!-- filter-form-->
-        <div class="filter-pictures_backend">
-          <div class="filter-container">
-            <form class="filter-form">
-              <label class="input-search-form-all" for="user-search">
-                <span class="text-filter-form">Search</span>
-                <span class="form-search-input">
-                  <input
-                    type="text"
-                    name="user-search"
-                    required
-                    minlength="2"
-                    placeholder="Enter Text"
-                    class="inp-search-form"
-                  />
-                  <svg width="18" height="18" class="form-icon-search">
-                    <use href="./partials/images/sprite.svg#icon-search"></use>
-                  </svg>
-                </span>
-              </label>
-              <label class="input-search-form-all" for="user-time">
-                <span class="text-filter-form">Time</span>
-                <select class="inp-time-form">
-                  <option value="">All</option>
-                  <option value="5">5 min</option>
-                  <option value="10">10 min</option>
-                  <option value="15">15 min</option>
-                  <option value="20">20 min</option>
-                  <option value="25">25 min</option>
-                  <option value="30">30 min</option>
-                  <option value="35">35 min</option>
-                  <option value="40">40 min</option>
-                  <option value="45">45 min</option>
-                  <option value="50">50 min</option>
-                  <option value="55">55 min</option>
-                  <option value="60">60 min</option>
-                  <option value="65">65 min</option>
-                  <option value="70">70 min</option>
-                  <option value="75">75 min</option>
-                  <option value="80">80 min</option>
-                  <option value="85">85 min</option>
-                  <option value="90">90 min</option>
-                  <option value="95">95 min</option>
-                  <option value="100">100 min</option>
-                  <option value="105">105 min</option>
-                  <option value="110">110 min</option>
-                  <option value="115">115 min</option>
-                  <option value="120">120 min</option>
-                </select>
-              </label>
-              <label class="input-search-form-all" for="user-area">
-                <span class="text-filter-form">Area</span>
-                <span class="form-search-input">
-                  <select
-                    type="text"
-                    name="user-area"
-                    required
-                    class="inp-area-form"
-                  >
-                    <option value="">All</option>
-                  </select>
-                </span>
-              </label>
-              <label class="input-search-form-all" for="user-ingredients">
-                <span class="text-filter-form">Ingredients</span>
-                <span class="form-search-input">
-                  <select
-                    type="text"
-                    name="user-ingredients"
-                    required
-                    class="inp-ingredients-form"
-                  >
-                    <option value="">All</option>
-                  </select>
-                </span>
-              </label>
-            </form>
-            <div class="reset-div-search">
-              <button type="button" class="svg-modal-reset-btn">
-                <svg width="16" height="16" class="svg-modal-reset">
-                  <use href="./partials/images/sprite.svg#icon-x"></use>
+        <!-- all-categories/-->
+        <!-- popular-->
+        <div class="popular-container">
+          <h2 class="popular-main-title">POPULAR RECIPIES</h2>
+          <ul class="popular-list"></ul>
+        </div>
+        <!-- popular/-->
+      </div>
+      <!-- filter-form-->
+      <div class="filter-pictures_backend">
+        <div class="filter-container">
+          <form class="filter-form">
+            <label class="input-search-form-all" for="user-search">
+              <span class="text-filter-form">Search</span>
+              <span class="form-search-input">
+                <input type="text" name="user-search" required minlength="2" placeholder="Enter Text"
+                  class="inp-search-form" />
+                <svg width="18" height="18" class="form-icon-search">
+                  <use href="./partials/images/sprite.svg#icon-search"></use>
                 </svg>
-                <span class="text-reset-btn">Reset the filter</span>
-              </button>
-            </div>
-          </div>
-          <!-- filter-form/-->
-          <!-- pictures_backend-->
-          <div class="gallery container">
-            <!-- Карточки изображений -->
+              </span>
+            </label>
+            <label class="input-search-form-all" for="user-time">
+              <span class="text-filter-form">Time</span>
+              <select class="inp-time-form">
+                <option value="">All</option>
+                <option value="5">5 min</option>
+                <option value="10">10 min</option>
+                <option value="15">15 min</option>
+                <option value="20">20 min</option>
+                <option value="25">25 min</option>
+                <option value="30">30 min</option>
+                <option value="35">35 min</option>
+                <option value="40">40 min</option>
+                <option value="45">45 min</option>
+                <option value="50">50 min</option>
+                <option value="55">55 min</option>
+                <option value="60">60 min</option>
+                <option value="65">65 min</option>
+                <option value="70">70 min</option>
+                <option value="75">75 min</option>
+                <option value="80">80 min</option>
+                <option value="85">85 min</option>
+                <option value="90">90 min</option>
+                <option value="95">95 min</option>
+                <option value="100">100 min</option>
+                <option value="105">105 min</option>
+                <option value="110">110 min</option>
+                <option value="115">115 min</option>
+                <option value="120">120 min</option>
+              </select>
+            </label>
+            <label class="input-search-form-all" for="user-area">
+              <span class="text-filter-form">Area</span>
+              <span class="form-search-input">
+                <select type="text" name="user-area" required class="inp-area-form">
+                  <option value="">All</option>
+                </select>
+              </span>
+            </label>
+            <label class="input-search-form-all" for="user-ingredients">
+              <span class="text-filter-form">Ingredients</span>
+              <span class="form-search-input">
+                <select type="text" name="user-ingredients" required class="inp-ingredients-form">
+                  <option value="">All</option>
+                </select>
+              </span>
+            </label>
+          </form>
+          <div class="reset-div-search">
+            <button type="button" class="svg-modal-reset-btn">
+              <svg width="16" height="16" class="svg-modal-reset">
+                <use href="./partials/images/sprite.svg#icon-x"></use>
+              </svg>
+              <span class="text-reset-btn">Reset the filter</span>
+            </button>
           </div>
         </div>
-      </section>
-    </main>
-    <script type="module" src="index.js"></script>
-  </body>
+        <!-- filter-form/-->
+        <!-- pictures_backend-->
+        <div class="gallery container">
+          <!-- Карточки изображений -->
+        </div>
+      </div>
+      <div id="tui-pagination-container" class="tui-pagination"></div>
+    </section>
+  </main>
+  <script type="module" src="index.js"></script>
+</body>
+
 </html>

@@ -8,3 +8,4 @@ import './partials/js/popular-recipes';
 import './partials/js/favorites';
 import './partials/js/search-filter';
 import './partials/js/render-filters-elements';
+import './partials/js/pagination';
