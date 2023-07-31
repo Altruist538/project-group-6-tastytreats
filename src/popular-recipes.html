@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TastyTreats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/partials/css/index.css" />
+    <link rel="stylesheet" href="/src/partials/css/filter.css" />
+    <link rel="stylesheet" href="./partials/css/popular-recipes.css" />
+</head>
+
+<body>
+    <main>
+<div class="backdrop-recipes is-hidden-modal">
+    <div id="scroll-rec" class="modal-recipes is-hidden-modal">
+        <div class="recipe-content">
+            <!-- <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                <img src="" alt="Рецепт" width="400" height="300"> -->
+            <h2 class="recipe-title-txt">Назва рецепту</h2>
+            <div class="rating-part">
+                <p class="rate">0.0</p>
+            </div>
+            <p class="recipe-time">Час приготування: 30 хвилин</p>
+            <ul class="ingridients"></ul>
+            <ul class="recipe-tags"></ul>
+            <div class="recipe-instr-scrollbar">
+                <p class="recipe-instr"></p>
+            </div>
+        </div>
+        <button class="save-recipes-btn">Додати до улюблених</button>
+        <button class="close-modal">
+            <svg class="close-modal-ico" width="20" height="20">
+                <use href="../src/partials/images/sprite.svg#icon-x"></use>
+            </svg>
+        </button>
+    </div>
+</div>
+</main>
+<script type="module" src="./partials/js/popular-recipes.js"></script>
+<script type="module" src="index.js"></script>
+</body>
+
+</html>
