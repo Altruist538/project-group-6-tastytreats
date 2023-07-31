@@ -55,13 +55,15 @@ export async function getRecipesByCategory(event) {
   }
 
   try {
-    let response = await axios.get(BASE_URL, {
-      params: {
-        // category: checkedCategory,
-        page: pageCounter,
-        limit: cardsPperPage,
-      },
-    });
+    let response = await axios
+      .get(BASE_URL, {
+        params: {
+          // category: checkedCategory,
+          page: pageCounter,
+          limit: cardsPperPage,
+        },
+      })
+      .then(response => response.data.results);
 
     galleryEl.innerHTML = '';
 
