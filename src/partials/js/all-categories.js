@@ -45,7 +45,7 @@ export async function getRecipesByCategory(event) {
   let cardsPperPage = 0;
   let pageCounter = 1;
 
-  const windowWidth = document.documentElement.clientWidth;
+  // const windowWidth = document.documentElement.clientWidth;
   if (window.innerWidth < 768) {
     cardsPperPage = 6;
   } else if (window.innerWidth >= 768 && window.innerWidth < 1200) {
@@ -57,7 +57,7 @@ export async function getRecipesByCategory(event) {
   try {
     let response = await axios.get(BASE_URL, {
       params: {
-        category: checkedCategory,
+        // category: checkedCategory,
         page: pageCounter,
         limit: cardsPperPage,
       },
