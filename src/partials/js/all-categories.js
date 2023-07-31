@@ -65,7 +65,7 @@ export async function getRecipesByCategory(event) {
 
     galleryEl.innerHTML = '';
 
-    return renderImgCard(response.data.results);
+    renderImgCard(response.data.results);
   } catch (error) {
     console.log(`Failed to fetch images: ${error}`);
   }
