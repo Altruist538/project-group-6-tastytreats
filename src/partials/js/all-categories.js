@@ -63,11 +63,11 @@ export async function getRecipesByCategory(event) {
           limit: cardsPperPage,
         },
       })
-      .then(response => response.data.results);
+      .then(response => {
+        galleryEl.innerHTML = '';
 
-    galleryEl.innerHTML = '';
-
-    renderImgCard(response.data.results);
+        renderImgCard(response.data.results);
+      });
   } catch (error) {
     console.log(`Failed to fetch images: ${error}`);
   }
