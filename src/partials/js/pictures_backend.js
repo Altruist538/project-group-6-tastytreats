@@ -129,13 +129,14 @@ export function getRecipeMarkup(recipe, favorites = []) {
 
 export async function fetchImages() {
   try {
-    let response = await axios.get(BASE_URL, {
-      params: {
-        page: pageCounter,
-        limit: perPage,
-      },
-    });
-    return renderImgCard(response.data.results);
+    let response = await axios
+      .get(BASE_URL, {
+        params: {
+          page: pageCounter,
+          limit: perPage,
+        },
+      })
+      .then(response => renderImgCard(response.data.results));
   } catch (error) {
     console.log(`Failed to fetch images: ${error}`);
   }
@@ -150,9 +151,8 @@ export function renderImgCard(response) {
   galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
 }
 // Вызываем функцию fetchImages() при загрузке страницы
-// document.addEventListener('DOMContentLoaded', () => {
-//   galleryEl && fetchImages();
-// });
-fetchImages();
-// galleryEl &&
-// galleryEl.addEventListener('click', toggleFavorite);
+document.addEventListener('DOMContentLoaded', () => {
+  galleryEl && fetchImages();
+});
+// fetchImages();
+galleryEl && galleryEl.addEventListener('click', toggleFavorite);
