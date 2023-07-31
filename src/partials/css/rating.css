@@ -25,10 +25,14 @@
 .filled {
   fill: #eea10c;
 }
-
+.star.filled{
+width: 18px;
+  height: 18px;
+}
 /* цифра-рейтинг попереду від зірок*/
 .rating {
   color: #f8f8f8;
+  margin-right: 4px;
 }
 
 .rating-wrapper {
