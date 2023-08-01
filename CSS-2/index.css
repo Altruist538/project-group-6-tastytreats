@@ -61,9 +61,9 @@ svg {
 .container {
   margin: 0 auto;
 }
-/* .filter-container {
+.filter-container {
   height: 100px;
-} */
+}
 .popular-container {
   gap: 16px;
 }
@@ -71,11 +71,11 @@ svg {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 16px;
 }
 @media screen and (max-width: 767px) {
   .container {
-    width: 375px;
+    min-width: 375px;
 
     padding: 0 20px;
   }

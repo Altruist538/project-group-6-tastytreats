@@ -1,21 +1,22 @@
 @media screen and (min-width: 768px) {
-  /* .popular-container {
-  } */
+  .popular-container {
+  }
 }
 
 @media screen and (max-width: 768px) {
-  /* .popular-container {
-  } */
+  .popular-container {
+  }
 }
 
 .popular-main-title {
   color: #050505;
   font-weight: 600;
   text-transform: uppercase;
-padding-top: 40px;
+
   font-size: 18px;
   line-height: calc(24 / 18);
-  margin-bottom: 20px;
+
+  margin-bottom: 40px;
 }
 .popular-list {
   display: flex;
@@ -88,7 +89,6 @@ padding-top: 40px;
   }
   .popular-list {
     gap: 16px;
-        width: 176px;
   }
   .popular-item {
     gap: 8px;
