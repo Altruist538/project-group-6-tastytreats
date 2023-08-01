@@ -88,6 +88,7 @@ padding-top: 40px;
   }
   .popular-list {
     gap: 16px;
+        width: 176px;
   }
   .popular-item {
     gap: 8px;

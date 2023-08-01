@@ -130,9 +130,15 @@
   .header-contact,
   .header-menu {
     display: flex;
-    gap: 20px;
-  }
+    /* gap: 20px; */
+    }
+    .contect-switch{
+      display: flex;
+      gap: 18px;
+      margin-left: 217px;
+    }
 }
+
 
 @media screen and (min-width: 1200px) {
   .header-menu-switch,

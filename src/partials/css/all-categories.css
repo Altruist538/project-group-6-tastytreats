@@ -85,6 +85,20 @@
   } */
 }
 
+@media screen and (min-width:768px) {
+  .all-categories-popular{
+    width:176px;
+        padding: 0 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .all-categories-backend{
+    display: flex;
+        /* flex-direction: row-reverse; */
+  }
+}
+
+
 @media screen and (min-width: 768px) {
   .all-categories-section {
     margin-bottom: 64px;
@@ -93,11 +107,12 @@
 
   .categories-list {
     height: 416px;
+        width: 176px;
   }
 
   .all-categories-button {
     margin-bottom: 30px;
-    width: 100%;
+    /* width: 100%; */
   }
 }
 

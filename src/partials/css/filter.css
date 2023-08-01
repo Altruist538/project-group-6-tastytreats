@@ -18,6 +18,12 @@
         height: 46px;
         padding: 0 0 0 48px;
       }
+
+   @media screen and (min-width:768px) {
+    .inp-search-form{
+     width: 278px;
+    }
+   }   
 .inp-time-form {
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
@@ -31,6 +37,13 @@
   height: 46px;
   line-height: 20px;
 }
+
+@media screen and (min-width:768px) {
+  .inp-time-form{
+    font-size: 16px;
+    width: 125px;
+  }
+}
 .inp-area-form {
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
@@ -40,6 +53,14 @@
       font-size: 14px;
           height: 46px;
 }
+
+@media screen and (min-width:768px) {
+  .inp-area-form{
+    width:141px;
+    font-size:16px
+  }
+}
+
 .inp-ingredients-form {
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.2);
@@ -49,6 +70,12 @@
   width: 188px;
   height: 46px;
       margin-bottom: 14px;
+}
+
+@media screen and (min-width:768px) {
+  .inp-ingredients-form{
+    margin-bottom: 0;
+  }
 }
 .form-icon-search {
         fill: #757575;
@@ -68,12 +95,26 @@
   font-size: 14px;
   }
 
+  @media screen and (min-width:768px) {
+    .form-search-input input::placeholder {
+        font-size: 16px;
+      }
+.filter-container.container{
+width:496px;
+}
+  }
 .filter-form {
   display: flex;
   flex-wrap: wrap;
   /* justify-content: center; */
   gap: 14px;
 }
+
+/* @media screen and (min-width:768px) {
+  .filter-form{
+    width:496px
+  }
+} */
 .reset-filter {
   color: rgba(5, 5, 5, 0.5);
   font-family: Inter;
