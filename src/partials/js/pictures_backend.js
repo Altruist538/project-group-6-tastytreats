@@ -129,15 +129,15 @@ export function getRecipeMarkup(recipe, favorites = []) {
 
 export async function fetchImages() {
   try {
-    const respon = await fetch(BASE_URL, {
+    const response = await axios.get(BASE_URL, {
       params: {
         page: pageCounter,
         limit: perPage,
       },
     });
-    const response = await respon.json();
-    console.log(response.results);
-    renderImgCard(response.results);
+    // const response = await respon.json();
+    console.log(response.data.results);
+    renderImgCard(response.data.results);
   } catch (error) {
     console.log(`Failed to fetch images: ${error}`);
   }
