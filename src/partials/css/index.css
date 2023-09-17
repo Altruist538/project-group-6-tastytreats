@@ -60,10 +60,11 @@ svg {
 
 .container {
   margin: 0 auto;
+  padding-bottom: 15px;
 }
-.filter-container {
+/* .filter-container {
   height: 100px;
-}
+} */
 .popular-container {
   gap: 16px;
 }
@@ -71,11 +72,11 @@ svg {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
+  gap: 40px;
 }
 @media screen and (max-width: 767px) {
   .container {
-    min-width: 375px;
+    width: 375px;
 
     padding: 0 20px;
   }
@@ -83,16 +84,12 @@ svg {
 
 @media screen and (min-width: 768px) {
   .container {
-    width: 768px;
-
     padding: 0 32px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
-    width: 1110px;
-
-    padding: 0 15px;
+    padding: 0 100px;
   }
 }

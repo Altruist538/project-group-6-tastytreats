@@ -17,7 +17,7 @@
 /* стиль cвітло-сіра зірка */
 .star {
   fill: rgba(248, 248, 248, 0.1);
-  width: 16px;
+  width: 14px;
   stroke: none;
 }
 
@@ -26,9 +26,13 @@
   fill: #eea10c;
 }
 
+.star.filled {
+  width: 14px;
+}
 /* цифра-рейтинг попереду від зірок*/
 .rating {
   color: #f8f8f8;
+  margin-right: 4px;
 }
 
 .rating-wrapper {
