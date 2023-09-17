@@ -1,5 +1,5 @@
-.container {
-}
+/* .container {
+} */
 
 .hero-btn {
   cursor: pointer;
@@ -32,6 +32,7 @@
 
   .hero-title {
     font-size: 26px;
+    width: 335px;
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: 14px;
@@ -49,6 +50,7 @@
     font-size: 14px;
     line-height: 1.2;
     margin-bottom: 28px;
+    width: 335px;
   }
 
   .hero-btn {
@@ -234,11 +236,11 @@
     border: 1px solid #9bb537;
   }
 
-  .hero-slider {
+  /* .hero-slider {
   }
 
   .slider {
-  }
+  } */
 
   .slider {
     width: 736px;
@@ -377,23 +379,28 @@
 @media screen and (min-width: 1280px) {
   .text-container {
     margin-bottom: 0;
+    margin-top: 64px;
+    margin-right: 32px;
+    padding-left: 100px;
   }
 
   .hero-section {
     padding: 100px 0;
+    margin-left: auto;
   }
 
   .hero-section .container {
     display: flex;
-    gap: 32px;
+    padding: 0;
   }
 
   .slider {
     width: 702px;
   }
 
-  /* 
-    .hero-slider {
-        width: 1180px;
-    } */
+  .hero-slider {
+    width: 1180px;
+    display: flex;
+    justify-content: flex-end;
+  }
 }

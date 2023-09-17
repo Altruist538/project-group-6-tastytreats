@@ -1,10 +1,20 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 16px;
   width: 100%;
-  padding: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .gallery {
+    padding-left: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    margin: 0;
+  }
 }
 
 .gallery__link {
@@ -18,14 +28,14 @@
 
 @media screen and (min-width: 768px) {
   .gallery__link {
-    width: 224px;
-    height: 244px;
+    width: 240px;
+    height: 264px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .gallery__link {
-    width: 258px;
+    width: 250px;
     height: 287px;
   }
 }
