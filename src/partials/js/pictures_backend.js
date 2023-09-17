@@ -135,6 +135,7 @@ export async function fetchImages() {
         limit: perPage,
       },
     });
+    console.log(response.data.results);
     return renderImgCard(response.data.results);
   } catch (error) {
     // console.error(error);
@@ -143,10 +144,11 @@ export async function fetchImages() {
 }
 
 export function renderImgCard(response) {
-  const storage = localStorage.getItem('favorites');
-  const favorites = JSON.parse(storage) || [];
+  // const storage = localStorage.getItem('favorites');
+  // const favorites = JSON.parse(storage) || [];
   let listArr = response.map(resp => {
-    return getRecipeMarkup(resp, favorites);
+    // return getRecipeMarkup(resp, favorites);
+    return getRecipeMarkup(resp);
   });
   galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
 }
