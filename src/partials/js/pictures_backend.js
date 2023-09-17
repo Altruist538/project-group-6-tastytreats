@@ -135,7 +135,7 @@ export async function fetchImages() {
         limit: perPage,
       },
     });
-    renderImgCard(response.data.results);
+    return renderImgCard(response.data.results);
   } catch (error) {
     console.error(error);
     console.log(`Failed to fetch images: ${error}`);
