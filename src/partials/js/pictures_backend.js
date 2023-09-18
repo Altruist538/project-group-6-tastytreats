@@ -4,13 +4,13 @@ const galleryEl = document.querySelector('.gallery');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
 const windowWidth = document.documentElement.clientWidth;
-let perPage = 0;
+let limitPage = 0;
 if (windowWidth < 768) {
-  perPage = 6;
+  limitPage = 6;
 } else if (windowWidth > 768 && windowWidth < 1280) {
-  perPage = 8;
+  limitPage = 8;
 } else if (windowWidth > 1280) {
-  perPage = 9;
+  limitPage = 9;
 }
 let pageCounter = 1;
 fetchImages();
@@ -143,7 +143,7 @@ export async function fetchImages() {
     let response = await axios.get(`${BASE_URL}`, {
       params: {
         page: pageCounter,
-        perPage: perPage,
+        limit: limitPage,
       },
     });
     console.log(response.data.results);
@@ -161,8 +161,8 @@ export function renderImgCard(response) {
     return getRecipeMarkup(resp, favorites);
     // return getRecipeMarkup(resp);
   });
-  // galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
-  galleryEl.innerHTML = listArr;
+  galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
+  // galleryEl.innerHTML = listArr;
 }
 // Вызываем функцию fetchImages() при загрузке страницы
 // document.addEventListener('DOMContentLoaded', () => {
