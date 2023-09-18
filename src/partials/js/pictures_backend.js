@@ -144,13 +144,14 @@ export async function fetchImages() {
 }
 
 export function renderImgCard(response) {
-  // const storage = localStorage.getItem('favorites');
-  // const favorites = JSON.parse(storage) || [];
+  const storage = localStorage.getItem('favorites');
+  const favorites = JSON.parse(storage) || [];
   let listArr = response.map(resp => {
-    // return getRecipeMarkup(resp, favorites);
-    return getRecipeMarkup(resp);
+    return getRecipeMarkup(resp, favorites);
+    // return getRecipeMarkup(resp);
   });
-  galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
+  // galleryEl.insertAdjacentHTML('beforeend', listArr.join(''));
+  galleryEl.innerHTML = listArr;
 }
 // Вызываем функцию fetchImages() при загрузке страницы
 // document.addEventListener('DOMContentLoaded', () => {
