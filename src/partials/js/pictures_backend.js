@@ -129,7 +129,7 @@ export function getRecipeMarkup(recipe, favorites = []) {
 }
 const fetchData = async () => {
   try {
-    const response = await axios.get(BASE_URL);
+    const response = await axios.get(`${BASE_URL}`);
     console.log(response.data.results);
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -139,7 +139,7 @@ const fetchData = async () => {
 fetchData();
 export async function fetchImages() {
   try {
-    let response = await axios.get(BASE_URL, {
+    let response = await axios.get(`${BASE_URL}`, {
       params: {
         page: pageCounter,
         limit: perPage,
