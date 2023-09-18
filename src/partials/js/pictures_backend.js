@@ -2,6 +2,7 @@ import axios from 'axios';
 import { toggleFavorite } from './favorites';
 const galleryEl = document.querySelector('.gallery');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+
 const windowWidth = document.documentElement.clientWidth;
 let perPage = 0;
 if (windowWidth < 768) {
@@ -127,22 +128,22 @@ export function getRecipeMarkup(recipe, favorites = []) {
       </div>
     </div>`;
 }
-const fetchData = async () => {
-  try {
-    const response = await axios.get(`${BASE_URL}`);
-    console.log(response.data.results);
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
-};
+// const fetchData = async () => {
+//   try {
+//     const response = await axios.get(`${BASE_URL}`);
+//     console.log(response.data);
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//   }
+// };
 
-fetchData();
+// fetchData();
 export async function fetchImages() {
   try {
     let response = await axios.get(`${BASE_URL}`, {
       params: {
         page: pageCounter,
-        limit: perPage,
+        perPage: perPage,
       },
     });
     console.log(response.data.results);
