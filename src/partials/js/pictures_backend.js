@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { toggleFavorite } from './favorites';
 const galleryEl = document.querySelector('.gallery');
-const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes/';
+const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 const windowWidth = document.documentElement.clientWidth;
 let perPage = 0;
 if (windowWidth < 768) {
@@ -12,6 +12,7 @@ if (windowWidth < 768) {
   perPage = 9;
 }
 let pageCounter = 1;
+fetchImages();
 export function getRecipeMarkup(recipe, favorites = []) {
   const { _id, preview, title, category, description, area, rating } = recipe;
   const isFavorite = favorites.some(fav => fav._id === _id);
@@ -157,6 +158,6 @@ export function renderImgCard(response) {
 // document.addEventListener('DOMContentLoaded', () => {
 //   galleryEl && fetchImages();
 // });
-fetchImages();
+
 // galleryEl &&
 // galleryEl.addEventListener('click', toggleFavorite);
