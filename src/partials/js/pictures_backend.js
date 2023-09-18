@@ -127,7 +127,16 @@ export function getRecipeMarkup(recipe, favorites = []) {
       </div>
     </div>`;
 }
+const fetchData = async () => {
+  try {
+    const response = await axios.get(BASE_URL);
+    console.log(response.data.results);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
 
+fetchData();
 export async function fetchImages() {
   try {
     let response = await axios.get(BASE_URL, {
