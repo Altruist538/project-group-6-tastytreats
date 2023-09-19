@@ -72,8 +72,9 @@ async function searchRecipesByQuery() {
   //   });
 
   const url = new URL(BASE_URL);
+  url.searchParams.append('title', searchQuery);
   url.searchParams.append('page', pageCounter);
-  url.searchParams.append('limit', limitPage);
+  url.searchParams.append('limit', cardsPperPage);
   try {
     let response = await fetch(url);
     if (!response.ok) {
