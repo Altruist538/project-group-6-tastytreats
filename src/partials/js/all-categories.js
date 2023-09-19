@@ -54,18 +54,32 @@ export async function getRecipesByCategory(event) {
     cardsPperPage = 9;
   }
 
+  // try {
+  //   let response = await axios.get(BASE_URL, {
+  //     params: {
+  //       category: checkedCategory,
+  //       page: pageCounter,
+  //       limit: cardsPperPage,
+  //     },
+  //   });
+
+  //   galleryEl.innerHTML = '';
+
+  //   renderImgCard(response.data.results);
+  const urlN = new URL(BASE_URL);
+  urlN.searchParams.append('category', checkedCategory);
+  urlN.searchParams.append('page', pageCounter);
+  urlN.searchParams.append('limit', cardsPperPage);
+
   try {
-    let response = await axios.get(BASE_URL, {
-      params: {
-        category: checkedCategory,
-        page: pageCounter,
-        limit: cardsPperPage,
-      },
-    });
-
+    let response = await fetch(urlN);
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    let recipesArr = await response.json();
     galleryEl.innerHTML = '';
-
-    renderImgCard(response.data.results);
+    console.log(recipesArr.results);
+    renderImgCard(recipesArr.results);
   } catch (error) {
     console.log(`Failed to fetch images: ${error}`);
   }

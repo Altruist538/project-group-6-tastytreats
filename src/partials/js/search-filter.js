@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchImages, renderImgCard } from './pictures_backend';
-import axios from 'axios';
+// import axios from 'axios';
 
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
 
@@ -71,7 +71,6 @@ async function searchRecipesByQuery() {
   //     },
   //   });
 
-  galleryEl.innerHTML = '';
   const url = new URL(BASE_URL);
   url.searchParams.append('page', pageCounter);
   url.searchParams.append('limit', limitPage);
@@ -81,6 +80,7 @@ async function searchRecipesByQuery() {
       throw new Error(response.status);
     }
     let recipesArr = await response.json();
+    galleryEl.innerHTML = '';
     console.log(recipesArr.results);
     renderImgCard(recipesArr.results);
     // renderImgCard(response.data.results);
