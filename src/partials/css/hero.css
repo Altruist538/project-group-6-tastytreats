@@ -386,7 +386,8 @@
 
   .hero-section {
     padding: 100px 0;
-    margin-left: auto;
+    width: 1200px;
+    margin: auto;
   }
 
   .hero-section .container {

@@ -90,6 +90,12 @@ svg {
 
 @media screen and (min-width: 1280px) {
   .container {
-    padding: 0 100px;
+    width: 1200px;
+    margin: auto;
+  }
+  .all-section {
+    padding: 100px 0;
+    width: 1200px;
+    margin: auto;
   }
 }
