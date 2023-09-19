@@ -140,17 +140,21 @@ export function getRecipeMarkup(recipe, favorites = []) {
 // fetchData();
 export async function fetchImages() {
   try {
-    let response = await axios.get(`${BASE_URL}`, {
-      params: {
-        page: pageCounter,
-        limit: limitPage,
-      },
-    });
+    let response = await axios.get(
+      'https://tasty-treats-backend.p.goit.global/api/recipes',
+      {
+        params: {
+          page: pageCounter,
+          limit: limitPage,
+        },
+      }
+    );
     console.log(response.data.results);
     return renderImgCard(response.data.results);
   } catch (error) {
     // console.error(error);
-    console.log(`Failed to fetch images: ${error}`);
+    console.error('Failed to fetch images:', error);
+    // console.log(`Failed to fetch images: ${error}`);
   }
 }
 
