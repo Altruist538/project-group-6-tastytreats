@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { toggleFavorite } from './favorites';
 const galleryEl = document.querySelector('.gallery');
 const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
@@ -128,35 +128,39 @@ export function getRecipeMarkup(recipe, favorites = []) {
       </div>
     </div>`;
 }
-// const fetchData = async () => {
-//   try {
-//     const response = await axios.get(`${BASE_URL}`);
-//     console.log(response.data);
-//   } catch (error) {
-//     console.error('Error fetching data:', error);
-//   }
-// };
 
-// fetchData();
 export async function fetchImages() {
   try {
-    let response = await axios.get(
-      'https://tasty-treats-backend.p.goit.global/api/recipes',
-      {
-        params: {
-          page: pageCounter,
-          limit: limitPage,
-        },
-      }
-    );
-    console.log(response.data.results);
-    return renderImgCard(response.data.results);
+    let response = await fetch(BASE_URL);
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    let recipesArr = await response.json();
+    console.log(recipesArr.results);
+    return renderImgCard(recipesArr.results);
   } catch (error) {
-    // console.error(error);
-    console.error('Failed to fetch images:', error);
-    // console.log(`Failed to fetch images: ${error}`);
+    console.log(`Failed to fetch recipes: ${error}`);
   }
 }
+// export async function fetchImages() {
+//   try {
+//     let response = await axios.get(
+//       'https://tasty-treats-backend.p.goit.global/api/recipes',
+//       {
+//         params: {
+//           page: pageCounter,
+//           limit: limitPage,
+//         },
+//       }
+//     );
+//     console.log(response.data.results);
+//     return renderImgCard(response.data.results);
+//   } catch (error) {
+//     // console.error(error);
+//     console.error('Failed to fetch images:', error);
+//     // console.log(`Failed to fetch images: ${error}`);
+//   }
+// }
 
 export function renderImgCard(response) {
   const storage = localStorage.getItem('favorites');
