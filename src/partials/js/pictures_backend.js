@@ -130,8 +130,12 @@ export function getRecipeMarkup(recipe, favorites = []) {
 }
 
 export async function fetchImages() {
+  const url = new URL(BASE_URL);
+  url.searchParams.append('page', pageCounter);
+  url.searchParams.append('limit', limitPage);
+
   try {
-    let response = await fetch(BASE_URL);
+    let response = await fetch(url);
     if (!response.ok) {
       throw new Error(response.status);
     }
