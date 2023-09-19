@@ -62,19 +62,31 @@ async function searchRecipesByQuery() {
     cardsPperPage = 9;
   }
 
+  // try {
+  //   let response = await axios.get(BASE_URL, {
+  //     params: {
+  //       title: searchQuery,
+  //       page: pageCounter,
+  //       limit: cardsPperPage,
+  //     },
+  //   });
+
+  galleryEl.innerHTML = '';
+  const url = new URL(BASE_URL);
+  url.searchParams.append('page', pageCounter);
+  url.searchParams.append('limit', limitPage);
   try {
-    let response = await axios.get(BASE_URL, {
-      params: {
-        title: searchQuery,
-        page: pageCounter,
-        limit: cardsPperPage,
-      },
-    });
+    let response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    let recipesArr = await response.json();
+    console.log(recipesArr.results);
+    renderImgCard(recipesArr.results);
+    // renderImgCard(response.data.results);
 
-    galleryEl.innerHTML = '';
-    renderImgCard(response.data.results);
-
-    if (response.data.results.length === 0) {
+    // if (response.data.results.length === 0) {
+    if (recipesArr.results === 0) {
       Notify.warning(
         'Sorry, we could not find any relevant receipes. Please, try again!'
       );
