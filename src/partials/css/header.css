@@ -39,10 +39,10 @@
   padding: 0;
   /* margin-right: 20px; */
 }
-.header-contact-burger{
-      display: flex;
-        align-items: center;
-        gap: 14px;
+.header-contact-burger {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
 @media screen and (min-width: 768px) {
@@ -131,14 +131,13 @@
   .header-menu {
     display: flex;
     /* gap: 20px; */
-    }
-    .contect-switch{
-      display: flex;
-      gap: 18px;
-      margin-left: 217px;
-    }
+  }
+  .contect-switch {
+    display: flex;
+    gap: 18px;
+    margin-left: 217px;
+  }
 }
-
 
 @media screen and (min-width: 1200px) {
   .header-menu-switch,
@@ -161,7 +160,7 @@
   font-style: normal;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 18px;
   line-height: 14.52px;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
