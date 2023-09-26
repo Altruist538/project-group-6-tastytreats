@@ -122,7 +122,7 @@ export function getRecipeMarkup(recipe, favorites = []) {
                 <div class="card-btn-wrapper">
 
         
-          <button class="card-btn">See recipe</button>
+          <button class="card-btn" data-id=${_id}>See recipe</button>
         </div>
         </div>
       </div>
@@ -140,7 +140,7 @@ export async function fetchImages() {
       throw new Error(response.status);
     }
     let recipesArr = await response.json();
-    console.log(recipesArr.results);
+
     return renderImgCard(recipesArr.results);
   } catch (error) {
     console.log(`Failed to fetch recipes: ${error}`);

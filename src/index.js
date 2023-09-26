@@ -9,3 +9,4 @@ import './partials/js/pictures_backend';
 import './partials/js/favorites';
 import './partials/js/search-filter';
 import './partials/js/render-filters-elements';
+import './partials/js/recipe-modal';
