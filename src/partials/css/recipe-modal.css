@@ -1,0 +1,251 @@
+.recipe-modal-backdrop {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.recipe-modal-backdrop.isOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.recipe-modal {
+  width: 531px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background-color: var(--primary-white-color);
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.recipe-modal.isOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.recipe-modal-close-button {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  color: #050505;
+}
+.recipe-modal-close-button-icon {
+  color: #050505;
+}
+
+.recipe-modal-title {
+  color: #050505;
+  text-align: start;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 122.222%;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.recipe-modal-youtube-iframe {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: linear-gradient(
+      0deg,
+      rgba(5, 5, 5, 0.4) 0%,
+      rgba(5, 5, 5, 0.4) 100%
+    ),
+    lightgray -34.64px -20px / 109.993% 120% no-repeat;
+}
+
+.recipe-modal-tags-and-rate-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.recipe-modal-tags-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.recipe-modal-tags-item {
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 35px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  color: #050505;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 116.667%;
+}
+
+.recipe-modal-rate {
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 128.571%;
+}
+
+.recipe-modal-time {
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 128.571%;
+}
+
+.recipe-modal-ingredients-list {
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 204px;
+  overflow: auto;
+}
+
+.recipe-modal-ingredients-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.recipe-modal-ingredients-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.recipe-modal-ingredients-list::-webkit-scrollbar-thumb {
+  background-color: rgba(5, 5, 5, 0.18);
+  border-radius: 12px;
+  height: 116px;
+}
+
+.recipe-modal-ingredients {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.recipe-modal-ingredients::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: rgba(5, 5, 5, 0.1);
+  margin-top: 6px;
+}
+
+.recipe-modal-ingredients:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.recipe-modal-ingredients-name {
+  color: #050505;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 128.571%;
+}
+
+.recipe-modal-ingredients-measure {
+  color: rgba(5, 5, 5, 0.5);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 128.571%;
+}
+
+.recipe-modal-instructions {
+  color: rgba(5, 5, 5, 0.8);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 128.571%;
+  margin: 32px 0;
+  overflow: auto;
+  max-height: 162px;
+  padding-right: 15px;
+}
+
+.recipe-modal-instructions::-webkit-scrollbar {
+  width: 8px;
+}
+
+.recipe-modal-instructionst::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.recipe-modal-instructions::-webkit-scrollbar-thumb {
+  background-color: rgba(5, 5, 5, 0.18);
+  border-radius: 12px;
+  height: 116px;
+}
+
+.recipe-modal-btn-wrapper {
+  display: flex;
+  justify-content: start;
+  gap: 16px;
+  width: 100%;
+}
+
+.recipe-modal-btn-green {
+  padding: 14px 28px;
+  background-color: #9bb537;
+  color: #f8f8f8;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.recipe-modal-btn-green:hover {
+  color: #050505;
+}
+
+.recipe-modal-btn-white {
+  cursor: pointer;
+  display: block;
+  background-color: #f8f8f8;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 14px 28px;
+  border-radius: 15px;
+  border: 1px solid #9bb537;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.recipe-modal-btn-white:hover {
+  color: #f8f8f8;
+  background-color: #9bb537;
+}
